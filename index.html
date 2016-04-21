@@ -12,7 +12,27 @@
   </head>
   <body>
 
+    <div ng-controller="stackCtrl">
+      <ul class="timer-stack">
+        <li ng-repeat="timer in timers">
+          {{ timer.timeLeft }}
+        </li>
+      </ul>
 
+      <form name="timerInfo" ng-submit="addTimer(minutes)">
+        <label>Minutes:
+          <input ng-model="minutes"
+                 type="number"
+                 min="0"
+                 max="240"
+                 string-to-number
+                 value="0"/>
+        </label>
+
+        <input type="submit" value="Add Timer" />
+      </form>
+
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="js/timestack.js"></script>
