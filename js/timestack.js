@@ -8,23 +8,31 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.timersRunning = false;
   stack.isPaused = false;
 
+  stack.isEmpty = function () {
+    return stack.timers.length <= 0;
+  };
+
   stack.addTimer = function () {
     stack.timers.push({ timeLeft: stack.formSeconds });
     stack.formSeconds = 0;
   };
 
   stack.startTimer = function () {
-    if (stack.timers.length > 0) {
+    if (!stack.isEmpty()) {
       stack.timersRunning = true;
       stack.isPaused = false;
-      stack.timerInt = $interval(function () {
-        if (stack.timers[0].timeLeft > 0) {
-          stack.tick();
-        } else {
-          stack.endFirstTimer();
-        }
-      }, 1000);
+      stack.setTimerInt();
     }
+  };
+
+  stack.setTimerInt = function () {
+    stack.timerInt = $interval(function () {
+      if (stack.timers[0].timeLeft > 0) {
+        stack.tick();
+      } else {
+        stack.endFirstTimerAndContinue();
+      }
+    }, 1000);
   };
 
   stack.pauseTimers = function () {
@@ -36,10 +44,10 @@ timestack.controller('stackCtrl', function ($interval) {
     stack.timers[0].timeLeft -= 1;
   };
 
-  stack.endFirstTimer = function () {
+  stack.endFirstTimerAndContinue = function () {
     $interval.cancel(stack.timerInt);
     stack.timers = stack.timers.slice(1);
-    if (stack.timers.length <= 0) {
+    if (stack.isEmpty()) {
       stack.timersRunning = false;
     } else {
       stack.startTimer();
