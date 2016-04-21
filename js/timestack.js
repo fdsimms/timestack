@@ -6,6 +6,7 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.formSeconds = 0;
   stack.timers = [];
   stack.timersRunning = false;
+  stack.isPaused = false;
 
   stack.addTimer = function () {
     stack.timers.push({ timeLeft: stack.formSeconds });
@@ -15,6 +16,7 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.startTimer = function () {
     if (stack.timers.length > 0) {
       stack.timersRunning = true;
+      stack.isPaused = false;
       stack.timerInt = $interval(function () {
         if (stack.timers[0].timeLeft > 0) {
           stack.tick();
@@ -23,6 +25,11 @@ timestack.controller('stackCtrl', function ($interval) {
         }
       }, 1000);
     }
+  };
+
+  stack.pauseTimers = function () {
+    $interval.cancel(stack.timerInt);
+    stack.isPaused = true;
   };
 
   stack.tick = function () {
