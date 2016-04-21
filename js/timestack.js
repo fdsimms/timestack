@@ -9,6 +9,7 @@ timestack.controller('stackCtrl', function ($interval) {
 
   stack.addTimer = function () {
     stack.timers.push({ timeLeft: stack.formSeconds });
+    stack.formSeconds = 0;
   };
 
   stack.removeFirstTimer = function () {
