@@ -25,24 +25,23 @@
         <input type="submit" value="Add Timer" />
       </form>
 
-      <form ng-hide="stack.timersRunning || stack.isEmpty()"
-            name="timer-start-button"
-            ng-submit="stack.startTimer()">
-        <input type="submit" value="Start Timer">
-      </form>
+      <button ng-click="stack.startTimer()"
+              ng-hide="stack.timersRunning || stack.isEmpty()"
+              class="start-timer-button">
+        Start
+      </button>
 
-      <form ng-show="stack.timersRunning && !stack.isPaused"
-            name="timer-pause-button"
-            ng-submit="stack.pauseTimers()">
-        <input type="submit" value="Pause">
-      </form>
-
-      <form ng-show="stack.isPaused"
-            name="timer-pause-button"
-            ng-submit="stack.startTimer()">
-        <input type="submit" value="Resume">
-      </form>
-
+      <button ng-click="stack.pauseTimers()"
+              ng-show="stack.timersRunning && !stack.isPaused"
+              class="pause-timer-button">
+        Pause
+      </button>
+      
+      <button ng-click="stack.startTimer()"
+              ng-show="stack.isPaused"
+              class="resume-timer-button">
+        Resume
+      </button>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
