@@ -25,7 +25,9 @@
         <input type="submit" value="Add Timer" />
       </form>
 
-      <form name="timer-start-button" ng-submit="stack.startTimer()">
+      <form ng-hide="{{ stack.timersRunning }}"
+            name="timer-start-button"
+            ng-submit="stack.startTimer()">
         <input type="submit" value="Start Timers">
       </form>
 
