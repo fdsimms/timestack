@@ -1,4 +1,7 @@
-var timestack = angular.module('timestack', ['timestack.directives.timer']);
+var timestack = angular.module('timestack', [
+  'timestack.directives.timer',
+  'timestack.directives.timerButtons'
+]);
 
 timestack.controller('stackCtrl', function ($interval) {
   var stack = this;
