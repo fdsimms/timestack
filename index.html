@@ -20,6 +20,7 @@
       </ul>
 
       <form name="timerInfo" ng-submit="stack.addTimer()">
+        <input type="number" ng-model="stack.formMinutes" />
           <input type="number" ng-model="stack.formSeconds" />
 
         <input type="submit" value="Add Timer" />
