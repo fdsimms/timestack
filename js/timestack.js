@@ -10,6 +10,7 @@ timestack.controller('stackCtrl', function ($interval) {
 
   stack.formSeconds = 0;
   stack.formMinutes = 0;
+  stack.formHours = 0;
   stack.timers = [];
   stack.timersRunning = false;
   stack.isPaused = false;
@@ -20,7 +21,9 @@ timestack.controller('stackCtrl', function ($interval) {
 
   stack.addTimer = function () {
     stack.timers.push({
-      timeInSeconds: stack.formSeconds + stack.formMinutes * 60,
+      timeInSeconds: stack.formSeconds +
+                     stack.formMinutes * 60 +
+                     stack.formHours * 3600,
       timerDesc: stack.timerDesc
     });
     stack.resetForm();
@@ -29,6 +32,7 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.resetForm = function () {
     stack.formSeconds = 0;
     stack.formMinutes = 0;
+    stack.formHours = 0;
     stack.timerDesc = "";
   };
 

@@ -6,8 +6,19 @@ angular.module('timestack.filters.formatTimer', [])
         return pad + num;
       };
 
-      var seconds = input % 60;
-      var minutes = Math.floor(input % 3600 / 60);
-      return (padNum(minutes) + ':' + padNum(seconds));
+      var seconds = padNum(input % 60);
+      var minutes = padNum(Math.floor(input % 3600 / 60));
+      var hours = padNum(Math.floor(input / 3600));
+      var time = []
+
+      if (hours > 0) {
+        time = time.concat([hours, minutes, seconds]);
+      } else if (minutes > 0) {
+        time = time.concat([minutes, seconds]);
+      } else if (seconds > 0) {
+        time = [seconds];
+      }
+
+      return time.join(":");
     };
   });
