@@ -1,7 +1,7 @@
 angular.module('timestack.directives.timer', [])
-  .directive('timer', function ($interval) {
+  .directive('timer', function () {
     return {
-      restrict: 'EA',
+      restrict: 'E',
       scope: {
         data: "="
       },
