@@ -1,7 +1,7 @@
 angular.module('timestack.directives.timerButtons', [])
   .directive('timerButtons', function () {
     return {
-      restrict: 'EA',
+      restrict: 'E',
       templateUrl: 'timer-buttons.html'
     };
   });

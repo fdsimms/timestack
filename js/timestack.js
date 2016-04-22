@@ -18,7 +18,7 @@ timestack.controller('stackCtrl', function ($interval) {
 
   stack.addTimer = function () {
     stack.timers.push({
-      timeLeft: stack.formSeconds + stack.formMinutes * 60
+      timeInSeconds: stack.formSeconds + stack.formMinutes * 60
     });
     stack.resetForm();
   };
@@ -38,7 +38,7 @@ timestack.controller('stackCtrl', function ($interval) {
 
   stack.setTimerInt = function () {
     stack.timerInt = $interval(function () {
-      if (stack.timers[0].timeLeft > 0) {
+      if (stack.timers[0].timeInSeconds > 0) {
         stack.tick();
       } else {
         stack.endFirstTimerAndContinue();
@@ -52,7 +52,7 @@ timestack.controller('stackCtrl', function ($interval) {
   };
 
   stack.tick = function () {
-    stack.timers[0].timeLeft -= 1;
+    stack.timers[0].timeInSeconds -= 1;
   };
 
   stack.endFirstTimerAndContinue = function () {

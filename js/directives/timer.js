@@ -5,6 +5,6 @@ angular.module('timestack.directives.timer', [])
       scope: {
         data: "="
       },
-      template: "<h1>{{data.timeLeft}}</h1>"
+      template: "<h1>{{ data.timeInSeconds }}</h1>"
     };
   });
