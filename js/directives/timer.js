@@ -5,6 +5,6 @@ angular.module('timestack.directives.timer', [])
       scope: {
         data: "="
       },
-      template: "<h1>{{ data.timeInSeconds | formatTimer }}</h1>"
+      templateUrl: "templates/timer.html"
     };
   });

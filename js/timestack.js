@@ -19,7 +19,8 @@ timestack.controller('stackCtrl', function ($interval) {
 
   stack.addTimer = function () {
     stack.timers.push({
-      timeInSeconds: stack.formSeconds + stack.formMinutes * 60
+      timeInSeconds: stack.formSeconds + stack.formMinutes * 60,
+      timerDesc: stack.timerDesc
     });
     stack.resetForm();
   };
@@ -48,7 +49,7 @@ timestack.controller('stackCtrl', function ($interval) {
   };
 
   stack.pauseTimers = function () {
-    $interval.cancel(stack.timerInt);
+    stack.stopInterval();
     stack.isPaused = true;
   };
 
@@ -56,8 +57,12 @@ timestack.controller('stackCtrl', function ($interval) {
     stack.timers[0].timeInSeconds -= 1;
   };
 
-  stack.endFirstTimerAndContinue = function () {
+  stack.stopInterval = function () {
     $interval.cancel(stack.timerInt);
+  };
+
+  stack.endFirstTimerAndContinue = function () {
+    stack.stopInterval();
     stack.timers = stack.timers.slice(1);
     if (stack.isEmpty()) {
       stack.timersRunning = false;
@@ -67,10 +72,11 @@ timestack.controller('stackCtrl', function ($interval) {
   };
 
   stack.removeTimer = function (idx) {
-    if (idx === 0) {
-      $interval.cancel(stack.timerInt);
-    };
-
     stack.timers.splice(idx, 1);
+    if (stack.isEmpty()) {
+      stack.stopInterval();
+      stack.timersRunning = false;
+      stack.isPaused = false;
+    };
   };
 })
