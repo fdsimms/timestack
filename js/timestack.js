@@ -28,6 +28,7 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.resetForm = function () {
     stack.formSeconds = 0;
     stack.formMinutes = 0;
+    stack.timerDesc = "";
   };
 
   stack.startTimer = function () {
