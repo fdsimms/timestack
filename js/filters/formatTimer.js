@@ -15,7 +15,7 @@ angular.module('timestack.filters.formatTimer', [])
         time = time.concat([hours, minutes, seconds]);
       } else if (minutes > 0) {
         time = time.concat([minutes, seconds]);
-      } else if (seconds > 0) {
+      } else if (seconds >= 0) {
         time = ["", seconds];
       }
 
