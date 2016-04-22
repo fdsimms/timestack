@@ -16,6 +16,9 @@
       <ul class="timer-stack">
         <li ng-repeat="timer in stack.timers">
           <timer data="timer"></timer>
+          <button ng-click="stack.removeTimer($index)">
+            X
+          </button>
         </li>
       </ul>
 
