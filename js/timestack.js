@@ -67,6 +67,10 @@ timestack.controller('stackCtrl', function ($interval) {
   };
 
   stack.removeTimer = function (idx) {
+    if (idx === 0) {
+      $interval.cancel(stack.timerInt);
+    };
+
     stack.timers.splice(idx, 1);
   };
 })
