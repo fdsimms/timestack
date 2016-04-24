@@ -8,32 +8,36 @@ var timestack = angular.module('timestack', [
 timestack.controller('stackCtrl', function ($interval) {
   var stack = this;
 
+  stack.cookie = function () {
+    return JSON.parse(localStorage.getItem('timestack'));
+  };
+
   stack.initCookie = function () {
-    var cookie = JSON.parse(window.localStorage.getItem('timestack'));
+    var cookie = stack.cookie();
     if (!cookie) {
       cookie = {
         timers: [],
         timersRunning: false,
         isPaused: false
       }
-      window.localStorage.setItem('timestack', JSON.stringify(cookie));
+      localStorage.setItem('timestack', JSON.stringify(cookie));
     }
   };
 
   stack.getCookieItem = function (cookieName) {
     return(
-      JSON.parse(localStorage.getItem('timestack'))[cookieName]
+      stack.cookie()[cookieName]
     );
   }
 
   stack.setCookieItem = function (cookieName, val) {
-    var cookie = JSON.parse(localStorage.getItem('timestack'));
+    var cookie = stack.cookie();
     cookie[cookieName] = val;
     localStorage.setItem('timestack', JSON.stringify(cookie));
   }
 
   stack.removeTimerFromCookie = function (idx) {
-    var cookie = JSON.parse(localStorage.getItem('timestack')).timers;
+    var cookie = stack.cookie().timers;
     cookie.splice(idx, 1);
     stack.setCookieItem('timers', cookie);
   };
