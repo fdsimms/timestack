@@ -8,15 +8,43 @@ var timestack = angular.module('timestack', [
 timestack.controller('stackCtrl', function ($interval) {
   var stack = this;
 
+  stack.initCookie = function () {
+    var cookie = JSON.parse(window.localStorage.getItem('timestack'));
+    if (!cookie) {
+      cookie = {
+        timers: [],
+        timersRunning: false,
+        isPaused: false
+      }
+      window.localStorage.setItem('timestack', JSON.stringify(cookie));
+    }
+  };
+
+  stack.getCookieItem = function (cookieName) {
+    return(
+      JSON.parse(localStorage.getItem('timestack'))[cookieName]
+    );
+  }
+
+  stack.setCookieItem = function (cookieName, val) {
+    var cookie = JSON.parse(localStorage.getItem('timestack'));
+    cookie[cookieName] = val;
+    localStorage.setItem('timestack', JSON.stringify(cookie));
+  }
+
+  stack.removeTimerFromCookie = function (idx) {
+    var cookie = JSON.parse(localStorage.getItem('timestack')).timers;
+    cookie.splice(idx, 1);
+    stack.setCookieItem('timers', cookie);
+  };
+
   stack.formSeconds = 0;
   stack.formMinutes = 0;
   stack.formHours = 0;
-  stack.timers = JSON.parse(localStorage.getItem('timers')) || [];
-  if (!window.localStorage.getItem('timers')) {
-    window.localStorage.setItem('timers', JSON.stringify([]));
-  }
   stack.timersRunning = false;
   stack.isPaused = false;
+  stack.initCookie();
+  stack.timers = stack.getCookieItem('timers');
 
   stack.isEmpty = function () {
     return stack.timers.length <= 0;
@@ -36,10 +64,9 @@ timestack.controller('stackCtrl', function ($interval) {
   };
 
   stack.addToCookieStack = function (cookieName, val) {
-    var cookie = JSON.parse(localStorage.getItem(cookieName));
+    var cookie = stack.getCookieItem(cookieName);
     cookie.push(val);
-    cookie = JSON.stringify(cookie);
-    localStorage.setItem(cookieName, cookie);
+    stack.setCookieItem(cookieName, cookie);
   };
 
   stack.resetForm = function () {
@@ -78,9 +105,9 @@ timestack.controller('stackCtrl', function ($interval) {
   };
 
   stack.cookieTick = function () {
-    var cookie = JSON.parse(localStorage.getItem('timers'));
+    var cookie = stack.getCookieItem('timers');
     cookie[0].timeInSeconds--;
-    localStorage.setItem('timers', JSON.stringify(cookie));
+    stack.setCookieItem('timers', cookie);
   };
 
   stack.stopInterval = function () {
@@ -99,6 +126,7 @@ timestack.controller('stackCtrl', function ($interval) {
 
   stack.removeTimer = function (idx) {
     stack.timers.splice(idx, 1);
+    stack.removeTimerFromCookie(idx);
     if (stack.isEmpty()) {
       stack.stopInterval();
       stack.timersRunning = false;
