@@ -38,14 +38,6 @@ timestack.controller('stackCtrl', function ($interval) {
     stack.setCookieItem('timers', cookie);
   };
 
-  stack.formSeconds = 0;
-  stack.formMinutes = 0;
-  stack.formHours = 0;
-  stack.timersRunning = false;
-  stack.isPaused = false;
-  stack.initCookie();
-  stack.timers = stack.getCookieItem('timers');
-
   stack.isEmpty = function () {
     return stack.timers.length <= 0;
   };
@@ -79,6 +71,8 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.startTimer = function () {
     if (!stack.isEmpty()) {
       stack.timersRunning = true;
+      stack.setCookieItem('timersRunning', true);
+      stack.setCookieItem('isPaused', false);
       stack.isPaused = false;
       stack.setTimerInt();
     }
@@ -97,6 +91,7 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.pauseTimers = function () {
     stack.stopInterval();
     stack.isPaused = true;
+    stack.setCookieItem('isPaused', true);
   };
 
   stack.tick = function () {
@@ -119,6 +114,7 @@ timestack.controller('stackCtrl', function ($interval) {
     stack.removeTimer(0);
     if (stack.isEmpty()) {
       stack.timersRunning = false;
+      stack.setCookieItem('timersRunning', false);
     } else {
       stack.startTimer();
     }
@@ -131,6 +127,17 @@ timestack.controller('stackCtrl', function ($interval) {
       stack.stopInterval();
       stack.timersRunning = false;
       stack.isPaused = false;
+      stack.setCookieItem('timersRunning', false);
+      stack.setCookieItem('isPaused', false);
     };
   };
+
+  stack.formSeconds = 0;
+  stack.formMinutes = 0;
+  stack.formHours = 0;
+  stack.initCookie();
+  stack.timersRunning = stack.getCookieItem('timersRunning');
+  stack.isPaused = stack.getCookieItem('isPaused');
+  stack.timers = stack.getCookieItem('timers');
+  if (stack.timersRunning) { stack.startTimer(); }
 })
