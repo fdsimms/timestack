@@ -116,7 +116,7 @@ timestack.controller('stackCtrl', function ($interval) {
 
   stack.endFirstTimerAndContinue = function () {
     stack.stopInterval();
-    stack.timers = stack.timers.slice(1);
+    stack.removeTimer(0);
     if (stack.isEmpty()) {
       stack.timersRunning = false;
     } else {
