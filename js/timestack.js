@@ -11,7 +11,10 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.formSeconds = 0;
   stack.formMinutes = 0;
   stack.formHours = 0;
-  stack.timers = [];
+  stack.timers = JSON.parse(localStorage.getItem('timers')) || [];
+  if (!window.localStorage.getItem('timers')) {
+    window.localStorage.setItem('timers', JSON.stringify([]));
+  }
   stack.timersRunning = false;
   stack.isPaused = false;
 
@@ -20,13 +23,23 @@ timestack.controller('stackCtrl', function ($interval) {
   };
 
   stack.addTimer = function () {
-    stack.timers.push({
+    var timer = {
       timeInSeconds: stack.formSeconds +
                      stack.formMinutes * 60 +
                      stack.formHours * 3600,
       timerDesc: stack.timerDesc
-    });
+    };
+
+    stack.timers.push(timer);
+    stack.addToCookieStack('timers', timer);
     stack.resetForm();
+  };
+
+  stack.addToCookieStack = function (cookieName, val) {
+    var cookie = JSON.parse(localStorage.getItem(cookieName));
+    cookie.push(val);
+    cookie = JSON.stringify(cookie);
+    localStorage.setItem(cookieName, cookie);
   };
 
   stack.resetForm = function () {
@@ -61,6 +74,13 @@ timestack.controller('stackCtrl', function ($interval) {
 
   stack.tick = function () {
     stack.timers[0].timeInSeconds -= 1;
+    stack.cookieTick();
+  };
+
+  stack.cookieTick = function () {
+    var cookie = JSON.parse(localStorage.getItem('timers'));
+    cookie[0].timeInSeconds--;
+    localStorage.setItem('timers', JSON.stringify(cookie));
   };
 
   stack.stopInterval = function () {
