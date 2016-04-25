@@ -143,5 +143,5 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.timersRunning = stack.getCookieItem('timersRunning');
   stack.isPaused = stack.getCookieItem('isPaused');
   stack.timers = stack.getCookieItem('timers');
-  if (stack.timersRunning) { stack.startTimer(); }
+  if (stack.timersRunning && !stack.isPaused) { stack.startTimer(); }
 })
