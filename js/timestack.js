@@ -144,6 +144,7 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.resetTimer = function (idx) {
     var timer = stack.timers[idx];
     timer.timeLeft = timer.timeInSeconds;
+    stack.setCookieItem('timers', stack.timers);
   };
 
   stack.removeTimer = function (idx) {
