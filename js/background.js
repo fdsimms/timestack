@@ -42,24 +42,21 @@ function startTimer() {
   }
 }
 
-function resetTimer(idx) {
-  var timer = timers()[idx];
-  timer.timeLeft = timer.timeInSeconds;
-};
-
 function pauseTimers() {
   stopInterval();
   cookie.isPaused = true;
 }
 
 function setTimerInt () {
-  timerInt = setInterval(function () {
-    if (timers()[0].timeLeft > 0) {
-      tick();
-    } else {
-      endFirstTimerAndContinue();
-    }
-  }, 1000);
+  if (typeof timerInt === "undefined") {
+    timerInt = setInterval(function () {
+      if (timers()[0].timeLeft > 0) {
+        tick();
+      } else {
+        endFirstTimerAndContinue();
+      }
+    }, 1000);
+  }
 };
 
 function endFirstTimerAndContinue () {

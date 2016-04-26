@@ -7,7 +7,7 @@ var timestack = angular.module('timestack', [
 
 timestack.controller('stackCtrl', function ($scope, $interval) {
   var stack = this;
-  var getBGP = chrome.runtime.getBackgroundPage;
+  var getBGP = chrome.runtime.getBackgroundPage; 
 
   stack.cookie = function () {
     return getBGP(function (bgp) {
@@ -58,12 +58,15 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
     getBGP(function (bgp) {
       bgp.startTimer();
     });
+    stack.timersRunning = true;
+    stack.isPaused = false;
   };
 
   stack.pauseTimers = function () {
     getBGP(function (bgp) {
       bgp.pauseTimers();
     });
+    stack.isPaused = true;
   };
 
   stack.moveTimerUp = function (idx) {
@@ -71,7 +74,6 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
       var timer = stack.timers[idx];
       stack.timers[idx] = stack.timers[idx - 1];
       stack.timers[idx - 1] = timer;
-      stack.setCookieItem('timers', stack.timers)
     }
 
     if (idx === 1 && stack.timersRunning) { stack.pauseTimers(); }
@@ -82,14 +84,12 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
       var timer = stack.timers[idx];
       stack.timers[idx] = stack.timers[idx + 1];
       stack.timers[idx + 1] = timer;
-      stack.setCookieItem('timers', stack.timers)
     }
   };
 
   stack.resetTimer = function (idx) {
-    getBGP(function (bgp) {
-      bgp.resetTimer(idx);
-    });
+    var timer = stack.timers[idx];
+    timer.timeLeft = timer.timeInSeconds;
   };
 
   stack.formSeconds = 0;
