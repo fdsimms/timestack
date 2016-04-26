@@ -53,6 +53,7 @@ timestack.controller('stackCtrl', function ($interval) {
                      stack.formHours * 3600,
       timerDesc: stack.timerDesc
     };
+    timer.timeLeft = timer.timeInSeconds;
 
     stack.timers.push(timer);
     stack.addToCookieStack('timers', timer);
@@ -84,7 +85,7 @@ timestack.controller('stackCtrl', function ($interval) {
 
   stack.setTimerInt = function () {
     stack.timerInt = $interval(function () {
-      if (stack.timers[0].timeInSeconds > 0) {
+      if (stack.timers[0].timeLeft > 0) {
         stack.tick();
       } else {
         stack.endFirstTimerAndContinue();
@@ -99,13 +100,13 @@ timestack.controller('stackCtrl', function ($interval) {
   };
 
   stack.tick = function () {
-    stack.timers[0].timeInSeconds -= 1;
+    stack.timers[0].timeLeft -= 1;
     stack.cookieTick();
   };
 
   stack.cookieTick = function () {
     var cookie = stack.getCookieItem('timers');
-    cookie[0].timeInSeconds--;
+    cookie[0].timeLeft--;
     stack.setCookieItem('timers', cookie);
   };
 
