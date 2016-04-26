@@ -5,7 +5,7 @@ var timestack = angular.module('timestack', [
   'timestack.filters.formatTimer'
 ]);
 
-timestack.controller('stackCtrl', function ($interval) {
+timestack.controller('stackCtrl', function ($scope, $interval) {
   var stack = this;
   var getBGP = chrome.runtime.getBackgroundPage;
 
@@ -13,6 +13,12 @@ timestack.controller('stackCtrl', function ($interval) {
     return getBGP(function (bgp) {
       return bgp.getCookie();
     })
+  };
+
+  stack.updateCookie = function () {
+    getBGP(function (bgp) {
+      stack.timers = bgp.timers();
+    });
   };
 
   stack.getCookieItem = function (cookieName) {
@@ -26,9 +32,7 @@ timestack.controller('stackCtrl', function ($interval) {
   }
 
   stack.removeTimerFromCookie = function (idx) {
-    var cookie = stack.cookie().timers;
-    cookie.splice(idx, 1);
-    stack.setCookieItem('timers', cookie);
+
   };
 
   stack.isEmpty = function () {
@@ -38,6 +42,9 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.pushTimerToStack = function (timer) {
     getBGP(function (bgp) {
       bgp.pushToTimers(timer);
+      $scope.$apply(function () {
+        stack.timers = bgp.timers();
+      });
     });
   };
 
@@ -49,7 +56,6 @@ timestack.controller('stackCtrl', function ($interval) {
   };
 
   stack.addTimer = function () {
-    debugger
     var timer = {
       timeInSeconds: stack.formSeconds +
                      stack.formMinutes * 60 +
@@ -58,9 +64,7 @@ timestack.controller('stackCtrl', function ($interval) {
     };
     timer.timeLeft = timer.timeInSeconds;
 
-    getBGP(function (bgp) {
-      bgp.pushToTimers(timer);
-    });
+    stack.pushTimerToStack(timer);
     stack.resetForm();
   };
 
@@ -164,7 +168,5 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.formMinutes = 0;
   stack.formHours = 0;
   stack.timerDesc = "";
-  getBGP(function (bgp) {
-    stack.timers = bgp.timers();
-  });
+  stack.updateCookie();
 })

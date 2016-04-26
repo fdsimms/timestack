@@ -1,10 +1,8 @@
-if (typeof cookie === "undefined") {
-  var cookie = {
-    timers: [],
-    timersRunning: false,
-    isPaused: false
-  };
-}
+var cookie = {
+  timers: [],
+  timersRunning: false,
+  isPaused: false
+};
 
 function timers() {
   return cookie.timers;
