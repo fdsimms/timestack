@@ -17,7 +17,9 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
 
   stack.updateCookie = function () {
     getBGP(function (bgp) {
-      stack.timers = bgp.timers();
+      $scope.$apply(function () {
+        stack.timers = bgp.timers();
+      });
     });
   };
 
