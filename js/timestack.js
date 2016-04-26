@@ -124,6 +124,22 @@ timestack.controller('stackCtrl', function ($interval) {
     }
   };
 
+  stack.moveTimerUp = function (idx) {
+    if (stack.timers[idx - 1]) {
+      var timer = stack.timers[idx];
+      stack.timers[idx] = stack.timers[idx - 1];
+      stack.timers[idx - 1] = timer;
+    }
+  };
+
+  stack.moveTimerDown = function (idx) {
+    if (stack.timers[idx + 1]) {
+      var timer = stack.timers[idx];
+      stack.timers[idx] = stack.timers[idx + 1];
+      stack.timers[idx + 1] = timer;
+    }
+  };
+
   stack.removeTimer = function (idx) {
     stack.timers.splice(idx, 1);
     stack.removeTimerFromCookie(idx);
