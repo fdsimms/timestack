@@ -92,6 +92,13 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
     timer.timeLeft = timer.timeInSeconds;
   };
 
+
+  stack.removeTimer = function (idx) {
+    getBGP(function (bgp) {
+      bgp.removeTimer(idx);
+    });
+  };
+
   stack.formSeconds = 0;
   stack.formMinutes = 0;
   stack.formHours = 0;
