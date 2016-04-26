@@ -7,33 +7,22 @@ var timestack = angular.module('timestack', [
 
 timestack.controller('stackCtrl', function ($interval) {
   var stack = this;
+  var getBGP = chrome.runtime.getBackgroundPage;
 
   stack.cookie = function () {
-    return JSON.parse(localStorage.getItem('timestack'));
-  };
-
-  stack.initCookie = function () {
-    var cookie = stack.cookie();
-    if (!cookie) {
-      cookie = {
-        timers: [],
-        timersRunning: false,
-        isPaused: false
-      }
-      localStorage.setItem('timestack', JSON.stringify(cookie));
-    }
+    return getBGP(function (bgp) {
+      return bgp.getCookie();
+    })
   };
 
   stack.getCookieItem = function (cookieName) {
-    return(
-      stack.cookie()[cookieName]
-    );
+    var cookie = stack.cookie();
+    return !!cookie ? cookie[cookieName] : null;
   }
 
   stack.setCookieItem = function (cookieName, val) {
     var cookie = stack.cookie();
     cookie[cookieName] = val;
-    localStorage.setItem('timestack', JSON.stringify(cookie));
   }
 
   stack.removeTimerFromCookie = function (idx) {
@@ -46,24 +35,10 @@ timestack.controller('stackCtrl', function ($interval) {
     return stack.timers.length <= 0;
   };
 
-  stack.addTimer = function () {
-    var timer = {
-      timeInSeconds: stack.formSeconds +
-                     stack.formMinutes * 60 +
-                     stack.formHours * 3600,
-      timerDesc: stack.timerDesc
-    };
-    timer.timeLeft = timer.timeInSeconds;
-
-    stack.timers.push(timer);
-    stack.addToCookieStack('timers', timer);
-    stack.resetForm();
-  };
-
-  stack.addToCookieStack = function (cookieName, val) {
-    var cookie = stack.getCookieItem(cookieName);
-    cookie.push(val);
-    stack.setCookieItem(cookieName, cookie);
+  stack.pushTimerToStack = function (timer) {
+    getBGP(function (bgp) {
+      bgp.pushToTimers(timer);
+    });
   };
 
   stack.resetForm = function () {
@@ -73,8 +48,29 @@ timestack.controller('stackCtrl', function ($interval) {
     stack.timerDesc = "";
   };
 
+  stack.addTimer = function () {
+    debugger
+    var timer = {
+      timeInSeconds: stack.formSeconds +
+                     stack.formMinutes * 60 +
+                     stack.formHours * 3600,
+      timerDesc: stack.timerDesc
+    };
+    timer.timeLeft = timer.timeInSeconds;
+
+    getBGP(function (bgp) {
+      bgp.pushToTimers(timer);
+    });
+    stack.resetForm();
+  };
+
+
   stack.startTimer = function () {
     if (!stack.isEmpty()) {
+      var storage = window.localStorage;
+      chrome.runtime.getBackgroundPage(function (bgp) {
+        bgp.startTimer(stack.cookie(), storage)
+      });
       stack.timersRunning = true;
       stack.setCookieItem('timersRunning', true);
       stack.setCookieItem('isPaused', false);
@@ -100,14 +96,15 @@ timestack.controller('stackCtrl', function ($interval) {
   };
 
   stack.tick = function () {
-    stack.timers[0].timeLeft -= 1;
-    stack.cookieTick();
+    $interval(function () {
+      chrome.runtime.getBackgroundPage(function (bgp) {
+        stack.cookies = bgp.cookie();
+      });
+    }, 1000)
   };
 
-  stack.cookieTick = function () {
-    var cookie = stack.getCookieItem('timers');
-    cookie[0].timeLeft--;
-    stack.setCookieItem('timers', cookie);
+  stack.bgpTick = function () {
+
   };
 
   stack.stopInterval = function () {
@@ -166,9 +163,8 @@ timestack.controller('stackCtrl', function ($interval) {
   stack.formSeconds = 0;
   stack.formMinutes = 0;
   stack.formHours = 0;
-  stack.initCookie();
-  stack.timersRunning = stack.getCookieItem('timersRunning');
-  stack.isPaused = stack.getCookieItem('isPaused');
-  stack.timers = stack.getCookieItem('timers');
-  if (stack.timersRunning && !stack.isPaused) { stack.startTimer(); }
+  stack.timerDesc = "";
+  getBGP(function (bgp) {
+    stack.timers = bgp.timers();
+  });
 })
