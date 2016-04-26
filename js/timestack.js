@@ -57,9 +57,6 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
   stack.startTimer = function () {
     getBGP(function (bgp) {
       bgp.startTimer();
-      stack.timerInt = setInterval(function () {
-        stack.updateInfo();
-      }, 1000);
     });
   };
 
@@ -99,5 +96,7 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
   stack.formMinutes = 0;
   stack.formHours = 0;
   stack.timerDesc = "";
-  stack.updateInfo();
+  stack.updateInt = $interval(function () {
+    stack.updateInfo();
+  }, 1000);
 })
