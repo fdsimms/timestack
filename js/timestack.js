@@ -130,9 +130,10 @@ timestack.controller('stackCtrl', function ($interval) {
       var timer = stack.timers[idx];
       stack.timers[idx] = stack.timers[idx - 1];
       stack.timers[idx - 1] = timer;
+      stack.setCookieItem('timers', stack.timers)
     }
 
-    if (idx === 1) { stack.pauseTimers(); }
+    if (idx === 1 && stack.timersRunning) { stack.pauseTimers(); }
   };
 
   stack.moveTimerDown = function (idx) {
@@ -140,6 +141,7 @@ timestack.controller('stackCtrl', function ($interval) {
       var timer = stack.timers[idx];
       stack.timers[idx] = stack.timers[idx + 1];
       stack.timers[idx + 1] = timer;
+      stack.setCookieItem('timers', stack.timers)
     }
   };
 
