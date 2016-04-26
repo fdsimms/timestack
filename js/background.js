@@ -65,7 +65,7 @@ function endFirstTimerAndContinue () {
   if (stackIsEmpty()) {
     cookie.timersRunning = false;
   } else {
-    startTimerInt();
+    setTimerInt();
   }
 };
 
