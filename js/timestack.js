@@ -131,6 +131,8 @@ timestack.controller('stackCtrl', function ($interval) {
       stack.timers[idx] = stack.timers[idx - 1];
       stack.timers[idx - 1] = timer;
     }
+
+    if (idx === 1) { stack.pauseTimers(); }
   };
 
   stack.moveTimerDown = function (idx) {
