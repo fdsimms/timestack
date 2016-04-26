@@ -7,7 +7,7 @@ var timestack = angular.module('timestack', [
 
 timestack.controller('stackCtrl', function ($scope, $interval) {
   var stack = this;
-  var getBGP = chrome.runtime.getBackgroundPage; 
+  var getBGP = chrome.runtime.getBackgroundPage;
 
   stack.cookie = function () {
     return getBGP(function (bgp) {
@@ -17,11 +17,9 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
 
   stack.updateInfo = function () {
     getBGP(function (bgp) {
-      $scope.$apply(function () {
-        stack.timers = bgp.timers();
-        stack.timersRunning = bgp.timersRunning();
-        stack.isPaused = bgp.isPaused();
-      });
+      stack.timers = bgp.timers();
+      stack.timersRunning = bgp.timersRunning();
+      stack.isPaused = bgp.isPaused();
     });
   };
 
