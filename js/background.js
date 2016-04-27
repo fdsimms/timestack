@@ -50,7 +50,6 @@ function setTimerInt () {
 };
 
 function endFirstTimerAndContinue () {
-  stopInterval();
   removeTimer(0);
   alert('BEEP BEEP BEEP');
   if (stackIsEmpty()) {
