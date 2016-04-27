@@ -77,6 +77,8 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
   };
 
   stack.resetTimer = function (idx) {
+    if (idx === 0) { stack.pauseTimers(); }
+
     var timer = stack.timers[idx];
     timer.timeLeft = timer.timeInSeconds;
   };
