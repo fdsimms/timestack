@@ -85,6 +85,8 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
       stack.timers[idx] = stack.timers[idx + 1];
       stack.timers[idx + 1] = timer;
     }
+
+    if (idx === 0 && stack.timersRunning) { stack.pauseTimers(); }
   };
 
   stack.resetTimer = function (idx) {
