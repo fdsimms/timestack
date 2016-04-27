@@ -22,10 +22,6 @@ function stackIsEmpty() {
   return timers().length === 0;
 };
 
-function getCookie() {
-  return cookie;
-}
-
 function tick() {
   cookie.timers[0].timeLeft--;
 }
