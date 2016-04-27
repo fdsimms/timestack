@@ -4,6 +4,8 @@ var cookie = {
   isPaused: false
 };
 
+var timerInt;
+
 function timers() {
   return cookie.timers;
 };
@@ -17,7 +19,7 @@ function isPaused() {
 };
 
 function stackIsEmpty() {
-  return timers().length <= 0;
+  return timers().length === 0;
 };
 
 function pushToTimers(val) {
@@ -57,12 +59,18 @@ function setTimerInt () {
 
 function endFirstTimerAndContinue () {
   stopInterval();
-  removeTimer(0);
+  endTimer(0);
+  alert('BEEP BEEP BEEP');
   if (stackIsEmpty()) {
     cookie.timersRunning = false;
   } else {
     setTimerInt();
   }
+};
+
+function endTimer(idx) {
+  timers().splice(idx, 1);
+  removeTimer(idx);
 };
 
 function stopInterval() {
