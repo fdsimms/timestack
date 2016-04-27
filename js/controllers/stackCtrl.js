@@ -3,12 +3,6 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
   stack.show = false;
   var getBGP = chrome.runtime.getBackgroundPage;
 
-  stack.cookie = function () {
-    return getBGP(function (bgp) {
-      return bgp.getCookie();
-    })
-  };
-
   stack.updateInfo = function () {
     getBGP(function (bgp) {
       stack.timers = bgp.timers();
