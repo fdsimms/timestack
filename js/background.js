@@ -51,7 +51,7 @@ function setTimerInt () {
 
 function endFirstTimerAndContinue () {
   stopInterval();
-  endTimer(0);
+  removeTimer(0);
   alert('BEEP BEEP BEEP');
   if (stackIsEmpty()) {
     cookie.timersRunning = false;
