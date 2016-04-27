@@ -93,6 +93,7 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
   };
 
   stack.removeTimer = function (idx) {
+    stack.timers.splice(idx, 1);
     getBGP(function (bgp) {
       bgp.removeTimer(idx);
     });

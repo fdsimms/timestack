@@ -72,7 +72,6 @@ function stopInterval() {
 };
 
 function removeTimer(idx) {
-  cookie.timers.splice(idx, 1);
   if (stackIsEmpty()) {
     stopInterval();
     cookie.timersRunning = false;
