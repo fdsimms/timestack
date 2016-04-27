@@ -54,8 +54,10 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
       bgp.startTimer();
     });
 
-    stack.timersRunning = true;
-    stack.isPaused = false;
+    if (!stack.isEmpty()) {
+      stack.timersRunning = true;
+      stack.isPaused = false;
+    }
   };
 
   stack.pauseTimers = function () {
