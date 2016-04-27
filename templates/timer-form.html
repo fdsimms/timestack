@@ -18,5 +18,9 @@
          ng-model="stack.timerDesc"
          placeholder="Description"/>
 
-  <input type="submit" value="Add Timer" />
+  <input type="submit"
+         value="Add Timer"
+         ng-disabled="stack.formSeconds +
+               stack.formMinutes +
+               stack.formHours === 0"/>
 </form>
