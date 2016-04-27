@@ -45,10 +45,15 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
     stack.resetForm();
   };
 
+  stack.isEmpty = function () {
+    return stack.timers.length === 0;
+  };
+
   stack.startTimer = function () {
     getBGP(function (bgp) {
       bgp.startTimer();
     });
+
     stack.timersRunning = true;
     stack.isPaused = false;
   };
