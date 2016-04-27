@@ -68,16 +68,16 @@ function endFirstTimerAndContinue () {
   }
 };
 
-function endTimer(idx) {
+function removeTimer(idx) {
+  stopTimer();
   timers().splice(idx, 1);
-  removeTimer(idx);
 };
 
 function stopInterval() {
   clearInterval(timerInt);
 };
 
-function removeTimer(idx) {
+function stopTimer() {
   if (stackIsEmpty()) {
     stopInterval();
     cookie.timersRunning = false;

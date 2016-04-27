@@ -46,7 +46,9 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
   };
 
   stack.isEmpty = function () {
-    return stack.timers.length === 0;
+    if (stack.show) {
+      return stack.timers.length === 0;
+    }
   };
 
   stack.startTimer = function () {
@@ -95,7 +97,7 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
   stack.removeTimer = function (idx) {
     stack.timers.splice(idx, 1);
     getBGP(function (bgp) {
-      bgp.removeTimer(idx);
+      bgp.stopTimer(idx);
     });
   };
 
