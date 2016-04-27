@@ -66,6 +66,12 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
     if (idx === 1 && stack.timersRunning) { stack.pauseTimers(); }
   };
 
+  stack.stopInterval = function () {
+    getBGP(function (bgp) {
+      bgp.stopInterval();
+    });
+  }
+
   stack.moveTimerDown = function (idx) {
     if (stack.timers[idx + 1]) {
       var timer = stack.timers[idx];
@@ -81,6 +87,15 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
 
     var timer = stack.timers[idx];
     timer.timeLeft = timer.timeInSeconds;
+  };
+
+  stack.clearTimers = function (idx) {
+    if (stack.timersRunning) {
+      stack.stopInterval();
+    }
+    stack.timers.length = 0;
+    stack.timersRunning = false;
+    stack.isPaused = false;
   };
 
   stack.removeTimer = function (idx) {
