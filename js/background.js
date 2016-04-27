@@ -4,8 +4,6 @@ var cookie = {
   isPaused: false
 };
 
-var timerInt;
-
 function timers() {
   return cookie.timers;
 };
