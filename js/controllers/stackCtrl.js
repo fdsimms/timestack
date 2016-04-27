@@ -18,13 +18,6 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
     });
   };
 
-  stack.pushTimerToStack = function (timer) {
-    getBGP(function (bgp) {
-      bgp.pushToTimers(timer);
-      stack.timers = bgp.timers();
-    });
-  };
-
   stack.resetForm = function () {
     stack.formSeconds = 0;
     stack.formMinutes = 0;
@@ -41,7 +34,7 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
     };
     timer.timeLeft = timer.timeInSeconds;
 
-    stack.pushTimerToStack(timer);
+    stack.timers.push(timer);
     stack.resetForm();
   };
 

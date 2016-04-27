@@ -22,10 +22,6 @@ function stackIsEmpty() {
   return timers().length === 0;
 };
 
-function pushToTimers(val) {
-  cookie.timers.push(val);
-};
-
 function getCookie() {
   return cookie;
 }
