@@ -21,9 +21,7 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
   stack.pushTimerToStack = function (timer) {
     getBGP(function (bgp) {
       bgp.pushToTimers(timer);
-      $scope.$apply(function () {
-        stack.timers = bgp.timers();
-      });
+      stack.timers = bgp.timers();
     });
   };
 
