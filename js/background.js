@@ -4,7 +4,7 @@ var cookie = {
   isPaused: false
 };
 
-var timerInt;
+var timerInterval;
 
 function timers() {
   return cookie.timers;
@@ -40,7 +40,7 @@ function pauseTimers() {
 }
 
 function setTimerInt () {
-  timerInt = setInterval(function () {
+  timerInterval = setInterval(function () {
     if (timers()[0].timeLeft > 0) {
       tick();
     } else {
@@ -66,7 +66,7 @@ function removeTimer(idx) {
 };
 
 function stopInterval() {
-  clearInterval(timerInt);
+  clearInterval(timerInterval);
 };
 
 function stopTimer() {
