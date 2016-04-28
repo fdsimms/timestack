@@ -1,10 +1,9 @@
-timestack.controller('stackCtrl', function ($scope, $interval) {
+timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   var stack = this;
   stack.show = false;
-  var getBGP = chrome.runtime.getBackgroundPage;
 
   stack.updateInfo = function () {
-    getBGP(function (bgp) {
+    bgpService.getBGP(function (bgp) {
       stack.timers = bgp.timers();
       stack.timersRunning = bgp.timersRunning();
       stack.isPaused = bgp.isPaused();
@@ -39,7 +38,7 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
   };
 
   stack.startTimer = function () {
-    getBGP(function (bgp) {
+    bgpService.getBGP(function (bgp) {
       bgp.startTimer();
     });
 
@@ -50,7 +49,7 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
   };
 
   stack.pauseTimers = function () {
-    getBGP(function (bgp) {
+    bgpService.getBGP(function (bgp) {
       bgp.pauseTimers();
     });
     stack.isPaused = true;
@@ -67,10 +66,10 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
   };
 
   stack.stopInterval = function () {
-    getBGP(function (bgp) {
+    bgpService.getBGP(function (bgp) {
       bgp.stopInterval();
     });
-  }
+  };
 
   stack.moveTimerDown = function (idx) {
     if (stack.timers[idx + 1]) {
@@ -89,7 +88,7 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
     timer.timeLeft = timer.timeInSeconds;
   };
 
-  stack.clearTimers = function (idx) {
+  stack.clearTimers = function () {
     if (stack.timersRunning) {
       stack.stopInterval();
     }
@@ -104,7 +103,7 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
       stack.timersRunning = false;
       stack.isPaused = false;
     }
-    getBGP(function (bgp) {
+    bgpService.getBGP(function (bgp) {
       bgp.stopTimer(idx);
     });
   };
@@ -116,4 +115,4 @@ timestack.controller('stackCtrl', function ($scope, $interval) {
   stack.updateInt = $interval(function () {
     stack.updateInfo();
   }, 1000);
-})
+});
