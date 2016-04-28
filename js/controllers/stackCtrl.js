@@ -1,11 +1,13 @@
 timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   var stack = this;
+  stack.show = false;
 
   stack.updateInfo = function () {
     bgpService.getBGP(function (bgp) {
       stack.timers = bgp.timers();
       stack.timersRunning = bgp.timersRunning();
       stack.isPaused = bgp.isPaused();
+      stack.show = true;
     });
   };
 
@@ -30,7 +32,11 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   };
 
   stack.isEmpty = function () {
-    if (stack.show) { return stack.timers.length === 0; }
+    if (stack.show) {
+      return stack.timers.length === 0;
+    } else {
+      return true;
+    }
   };
 
   stack.startTimer = function () {
