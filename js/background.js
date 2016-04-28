@@ -1,4 +1,4 @@
-var cookie = {
+var background = {
   timers: [],
   timersRunning: false,
   isPaused: false
@@ -7,15 +7,15 @@ var cookie = {
 var timerInterval;
 
 function timers() {
-  return cookie.timers;
+  return background.timers;
 };
 
 function timersRunning() {
-  return cookie.timersRunning;
+  return background.timersRunning;
 };
 
 function isPaused() {
-  return cookie.isPaused;
+  return background.isPaused;
 };
 
 function stackIsEmpty() {
@@ -23,20 +23,20 @@ function stackIsEmpty() {
 };
 
 function tick() {
-  cookie.timers[0].timeLeft--;
+  background.timers[0].timeLeft--;
 }
 
 function startTimer() {
   if (!stackIsEmpty()) {
-    cookie.timersRunning = true;
-    cookie.isPaused = false;
+    background.timersRunning = true;
+    background.isPaused = false;
     setTimerInt();
   }
 }
 
 function pauseTimers() {
   stopInterval();
-  cookie.isPaused = true;
+  background.isPaused = true;
 }
 
 function setTimerInt () {
@@ -53,7 +53,7 @@ function endFirstTimerAndContinue () {
   removeTimer(0);
   alert('BEEP BEEP BEEP');
   if (stackIsEmpty()) {
-    cookie.timersRunning = false;
+    background.timersRunning = false;
   } else {
     setTimerInt();
   }
@@ -66,12 +66,12 @@ function removeTimer(idx) {
 
 function stopInterval() {
   clearInterval(timerInterval);
+  background.timersRunning = false;
+  background.isPaused = false;
 };
 
 function stopTimer() {
   if (stackIsEmpty()) {
     stopInterval();
-    cookie.timersRunning = false;
-    cookie.isPaused = false;
   };
 };
