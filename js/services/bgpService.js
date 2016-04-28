@@ -26,4 +26,10 @@ angular.module("timestack.services.bgpService", [])
         bgp.stopTimer(idx);
       });
     };
+
+    bgpService.startTimer = function () {
+      bgpService.getBGP(function (bgp) {
+        bgp.startTimer();
+      });
+    };
   });

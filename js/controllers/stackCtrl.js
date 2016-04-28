@@ -6,7 +6,6 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
       stack.timers = bgp.timers();
       stack.timersRunning = bgp.timersRunning();
       stack.isPaused = bgp.isPaused();
-      stack.show = true;
     });
   };
 
@@ -35,9 +34,7 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   };
 
   stack.startTimer = function () {
-    bgpService.getBGP(function (bgp) {
-      bgp.startTimer();
-    });
+    bgpService.startTimer();
 
     if (!stack.isEmpty()) {
       stack.timersRunning = true;
