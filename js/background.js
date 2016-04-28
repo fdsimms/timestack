@@ -60,12 +60,19 @@ function endFirstTimerAndContinue () {
 }
 
 function removeTimer(idx) {
-  stopTimer();
+  stopInterval();
+  background.timersRunning = false;
+  background.isPaused = false;
   timers().splice(idx, 1);
 }
 
 function stopInterval() {
   clearInterval(timerInterval);
+}
+
+function clearTimers() {
+  stopInterval();
+  background.timers.length = 0;
   background.timersRunning = false;
   background.isPaused = false;
 }
