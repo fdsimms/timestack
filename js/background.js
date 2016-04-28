@@ -8,19 +8,19 @@ var timerInterval;
 
 function timers() {
   return background.timers;
-};
+}
 
 function timersRunning() {
   return background.timersRunning;
-};
+}
 
 function isPaused() {
   return background.isPaused;
-};
+}
 
 function stackIsEmpty() {
   return timers().length === 0;
-};
+}
 
 function tick() {
   background.timers[0].timeLeft--;
@@ -47,31 +47,31 @@ function setTimerInt () {
       endFirstTimerAndContinue();
     }
   }, 1000);
-};
+}
 
 function endFirstTimerAndContinue () {
   removeTimer(0);
-  alert('BEEP BEEP BEEP');
+  alert("BEEP BEEP BEEP");
   if (stackIsEmpty()) {
     background.timersRunning = false;
   } else {
     setTimerInt();
   }
-};
+}
 
 function removeTimer(idx) {
   stopTimer();
   timers().splice(idx, 1);
-};
+}
 
 function stopInterval() {
   clearInterval(timerInterval);
   background.timersRunning = false;
   background.isPaused = false;
-};
+}
 
 function stopTimer() {
   if (stackIsEmpty()) {
     stopInterval();
-  };
-};
+  }
+}
