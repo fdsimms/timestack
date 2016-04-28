@@ -12,7 +12,7 @@
   </head>
   <body>
 
-    <div ng-controller="stackCtrl as stack" ng-show="stack.show">
+    <div ng-controller="stackCtrl as stack">
       <ul class="timer-stack">
         <li ng-repeat="timer in stack.timers track by $index">
           <timer data="timer"></timer>
@@ -36,7 +36,7 @@
       <timer-form></timer-form>
       <timer-buttons></timer-buttons>
     </div>
-    
+
     <script src="dependencies/angular.js"></script>
     <script src="js/timestack.js"></script>
     <script src="js/controllers/stackCtrl.js"></script>
