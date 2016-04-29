@@ -50,6 +50,7 @@ button, .button {
 }
 .control-button {
   width: 75px;
+  padding: 7.5px;
   font-size: 12px;
 }
 
@@ -64,6 +65,7 @@ button, .button {
   width: 80%;
   font-size: 14px;
   font-weight: bold;
+  text-align: left;
 }
 
 input {
@@ -78,7 +80,7 @@ input {
 
 .time-inputs {
   display: block;
-  width: 130px;
+  width: 32%;
   margin: 5px auto 0 auto;
 }
 
