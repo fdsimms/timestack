@@ -119,3 +119,8 @@ input {
   text-align: center;
   margin-bottom: 10px;
 }
+
+.timer-text-description {
+  font-size: 14px;
+  font-style: italic;
+}
