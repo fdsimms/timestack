@@ -110,3 +110,10 @@ input {
   width: 500px;
   padding: 10px;
 }
+
+.app-title {
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+}
