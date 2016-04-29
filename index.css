@@ -118,6 +118,7 @@ input {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 10px;
+  letter-spacing: 2px;
 }
 
 .timer-text-description {
