@@ -21,7 +21,7 @@
        ng-hide="stack.show"
        ng-controller="stackCtrl as stack"></i>
 
-    <div ng-controller="stackCtrl as stack" ng-show="stack.show">
+    <div class="app" ng-controller="stackCtrl as stack" ng-show="stack.show">
       <ul class="timer-stack">
         <li class="timer"
             ng-repeat="timer in stack.timers track by $index">
