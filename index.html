@@ -14,24 +14,32 @@
   <body>
 
 
-    <i class="fa fa-spinner fa-pulse" aria-hidden="true" ng-hide="stack.show"
-    ng-controller="stackCtrl as stack"></i>
+    <i class="fa fa-spinner fa-pulse"
+       aria-hidden="true"
+       ng-hide="stack.show"
+       ng-controller="stackCtrl as stack"></i>
+
     <div ng-controller="stackCtrl as stack" ng-show="stack.show">
       <ul class="timer-stack">
-        <li ng-repeat="timer in stack.timers track by $index">
+        <li class="timer"
+            ng-repeat="timer in stack.timers track by $index">
           <timer data="timer"></timer>
-          <button ng-click="stack.removeTimer($index)">
+          <button class="remove-timer-button"
+                  ng-click="stack.removeTimer($index)">
             X
           </button>
-          <button ng-hide="$index === 0"
+          <button class="move-up-button"
+                  ng-hide="$index === 0"
                   ng-click="stack.moveTimerUp($index)">
             up
           </button>
-          <button ng-hide="$index === (stack.timers.length - 1)"
+          <button class="move-down-button"
+                  ng-hide="$index === (stack.timers.length - 1)"
                   ng-click="stack.moveTimerDown($index)">
             down
           </button>
-          <button ng-click="stack.resetTimer($index)">
+          <button class="reset-button"
+                  ng-click="stack.resetTimer($index)">
             reset
           </button>
         </li>
