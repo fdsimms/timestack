@@ -48,6 +48,7 @@ button, .button {
   padding: 5px;
   cursor: pointer;
 }
+
 .control-button {
   width: 150px;
   padding: 7.5px;
@@ -61,8 +62,9 @@ button, .button {
 }
 
 .text-description {
-  margin: 5px auto;
+  margin: 10px auto;
   width: 80%;
+  padding: 5px;
   font-size: 14px;
   font-weight: bold;
   text-align: left;
