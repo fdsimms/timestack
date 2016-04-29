@@ -90,12 +90,11 @@ function endFirstTimerAndContinue () {
   }
 }
 
-function removeTimer(idx) {
+function removeTimer() {
   resetIcon();
   stopInterval();
   background.timersRunning = false;
   background.isPaused = false;
-  timers().splice(idx, 1);
 }
 
 function stopInterval() {
