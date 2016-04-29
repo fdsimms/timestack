@@ -13,3 +13,7 @@ label, button {
   vertical-align: inherit;
   text-decoration: none;
 }
+
+body {
+  font-family: 'Merriweather';
+}
