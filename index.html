@@ -9,9 +9,13 @@
         display: none !important;
       }
     </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   </head>
   <body>
 
+
+    <i class="fa fa-spinner fa-spin" aria-hidden="true" ng-hide="stack.show"
+    ng-controller="stackCtrl as stack"></i>
     <div ng-controller="stackCtrl as stack" ng-show="stack.show">
       <ul class="timer-stack">
         <li ng-repeat="timer in stack.timers track by $index">
