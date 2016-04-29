@@ -25,15 +25,31 @@ body {
 .timer-button {
 }
 
-.button {
-  width: 75px;
-  text-align: center;
+.group:before {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.timer-button {
+  float: right;
+  font-size: 12px;
+}
+
+.add-timer-button {
+  margin: 5px 0;
+}
+
+button, .button {
   border: 1px solid black;
   border-radius: 10px;
   margin: 2.5px auto;
   display: block;
   padding: 5px;
   cursor: pointer;
+}
+.control-button {
+  width: 75px;
   font-size: 12px;
 }
 
@@ -44,12 +60,45 @@ body {
 }
 
 .text-description {
-  margin: auto;
+  margin: 5px auto;
+  width: 80%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input {
+  display: block;
+  border: 1px solid #eee;
+}
+
+.time-input {
+  margin: 0 0.5px;
+  float: left;
+}
+
+.time-inputs {
+  display: block;
+  width: 130px;
+  margin: 5px auto 0 auto;
+}
+
+.timer {
   display: block;
   width: 80%;
+  margin: auto;
+  border-bottom: 1px solid black;
+}
+
+.timer-data {
+  float: left;
+  margin-right: 5px;
+  display: block;
+  width: 285px;
+  text-align: left;
 }
 
 .app {
   display: block;
-  width: 200px;
+  width: 500px;
+  padding: 10px;
 }

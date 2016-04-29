@@ -1,26 +1,29 @@
 <form class="timer-form" name="timerInfo" ng-submit="stack.addTimer()">
-  <input type="number"
-         ng-model="stack.formHours"
-         max="24"
-         min="0" />
-  :
-  <input type="number"
-         ng-model="stack.formMinutes"
-         max="59"
-         min="0" />
-  :
-  <input type="number"
-         ng-model="stack.formSeconds"
-         max="59"
-         min="0" />
+  <div class="time-inputs group">
+    <input class="time-input"
+           type="number"
+           ng-model="stack.formHours"
+           max="24"
+           min="0" />
+    <input class="time-input"
+           type="number"
+           ng-model="stack.formMinutes"
+           max="59"
+           min="0" />
+    <input class="time-input"
+           type="number"
+           ng-model="stack.formSeconds"
+           max="59"
+           min="0" />
 
-  <input type="text"
-         class="text-description"
-         ng-model="stack.timerDesc"
-         placeholder="Description"/>
+    <input type="text"
+           class="text-description"
+           ng-model="stack.timerDesc"
+           placeholder="Description"/>
+  </div>
 
   <input type="submit"
-         class="add-timer-button button"
+         class="add-timer-button button control-button"
          value="Add Timer"
          ng-disabled="stack.formSeconds +
                stack.formMinutes +
