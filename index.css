@@ -49,7 +49,7 @@ button, .button {
   cursor: pointer;
 }
 .control-button {
-  width: 75px;
+  width: 150px;
   padding: 7.5px;
   font-size: 12px;
 }
