@@ -28,6 +28,9 @@ function tick() {
   updateIcon(timer.timeInSeconds, timer.timeLeft);
 }
 
+var icon = new Image();
+icon.src = "icon.png";
+
 function updateIcon(startTime, timeLeft) {
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
@@ -36,7 +39,7 @@ function updateIcon(startTime, timeLeft) {
   var timeRatio = elapsedTime / startTime;
   var width = 19 * timeRatio;
   if (width <= 2) { width = 2; }
-
+  ctx.drawImage(icon, 0, 0, 19, 19);
   ctx.fillStyle = "rgb(200,0,200)";
   ctx.fillRect(0, 0, width, 19);
 
@@ -48,8 +51,6 @@ function resetIcon() {
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  var icon = new Image();
-  icon.src = "icon.png";
   ctx.drawImage(icon, 0, 0, 19, 19);
   var imageData = ctx.getImageData(0, 0, 19, 19);
   chrome.browserAction.setIcon({ imageData: imageData });
