@@ -1,23 +1,23 @@
 <button ng-click="stack.startTimer()"
         ng-hide="stack.timersRunning || stack.isEmpty()"
-        class="start-timer-button">
+        class="start-timer-button button">
   Start
 </button>
 
 <button ng-click="stack.pauseTimers()"
         ng-show="stack.timersRunning && !stack.isPaused"
-        class="pause-timer-button">
+        class="pause-timer-button button">
   Pause
 </button>
 
 <button ng-click="stack.startTimer()"
         ng-show="stack.isPaused"
-        class="resume-timer-button">
+        class="resume-timer-button button">
   Resume
 </button>
 
 <button ng-click="stack.clearTimers()"
         ng-hide="stack.isEmpty()"
-        class="clear-all-button">
+        class="clear-all-button button">
   Clear all
 </button>
