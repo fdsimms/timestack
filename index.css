@@ -12,6 +12,7 @@ label, button {
   box-shadow: none;
   vertical-align: inherit;
   text-decoration: none;
+  cursor: default;
 }
 
 body {
@@ -73,6 +74,7 @@ button, .button {
 input {
   display: block;
   border: 1px solid #eee;
+  cursor: text;
 }
 
 .time-input {
