@@ -6,18 +6,18 @@
 
 <button ng-click="stack.pauseTimers()"
         ng-show="stack.timersRunning && !stack.isPaused"
-        class="pause-timer-button button">
+        class="pause-timer-button button timer-button">
   Pause
 </button>
 
 <button ng-click="stack.startTimer()"
         ng-show="stack.isPaused"
-        class="resume-timer-button button">
+        class="resume-timer-button button timer-button">
   Resume
 </button>
 
 <button ng-click="stack.clearTimers()"
         ng-hide="stack.isEmpty()"
-        class="clear-all-button button">
+        class="clear-all-button button timer-button">
   Clear all
 </button>

@@ -17,3 +17,27 @@ label, button {
 body {
   font-family: 'Merriweather';
 }
+
+.add-timer-button {
+}
+
+.timer-button {
+}
+
+.button {
+  width: 75px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 2.5px auto;
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.timer-form {
+  display: block;
+  width: 80%;
+  margin: auto;
+}
