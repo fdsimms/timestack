@@ -27,6 +27,12 @@ angular.module("timestack.services.bgpService", [])
       });
     };
 
+    bgpService.removeTimer = function (idx) {
+      bgpService.getBGP(function (bgp) {
+        bgp.removeTimer(idx);
+      });
+    };
+
     bgpService.startTimer = function () {
       bgpService.getBGP(function (bgp) {
         bgp.startTimer();

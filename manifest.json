@@ -14,7 +14,7 @@
     "https://ajax.googleapis.com/"
   ],
   "background": {
-    "scripts": ["js/background.js"],
+    "page": "background.html",
     "persistent": true
   }
 }

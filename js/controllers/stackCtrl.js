@@ -94,7 +94,7 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
       stack.isPaused = false;
     }
 
-    bgpService.stopTimer(idx);
+    bgpService.removeTimer(idx);
   };
 
   stack.formSeconds = 0;
