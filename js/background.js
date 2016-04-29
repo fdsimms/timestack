@@ -91,6 +91,7 @@ function endFirstTimerAndContinue () {
 }
 
 function removeTimer(idx) {
+  resetIcon();
   stopInterval();
   background.timersRunning = false;
   background.isPaused = false;
@@ -102,6 +103,7 @@ function stopInterval() {
 }
 
 function clearTimers() {
+  resetIcon();
   stopInterval();
   background.timers.length = 0;
   background.timersRunning = false;
