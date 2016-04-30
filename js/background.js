@@ -40,7 +40,7 @@ function updateIcon(startTime, timeLeft) {
   var width = 19 * timeRatio;
   if (width <= 1) { width = 1; }
   ctx.drawImage(icon, 0, 0, 19, 19);
-  ctx.fillStyle = "rgb(200,0,200)";
+  ctx.fillStyle = "rgba(121,100,237, 0.5)";
   ctx.fillRect(0, 0, width, 19);
 
   var imageData = ctx.getImageData(0, 0, 19, 19);
