@@ -60,17 +60,18 @@ button, .button {
 
 .timer-form {
   display: block;
-  width: 80%;
+  width: 85%;
   margin: 10px auto 0 auto;
 }
 
 .text-description {
-  margin: 10px auto;
-  width: 80%;
+  margin: 0px auto 10px auto;
+  width: 184px;
   padding: 5px;
   font-size: 14px;
   font-weight: bold;
   text-align: left;
+  float: right;
 }
 
 input {
@@ -89,8 +90,9 @@ input {
 
 .time-inputs {
   display: block;
-  width: 183px;
+  width: 184px;
   margin: 5px auto 0 auto;
+  float: left;
 }
 
 .timer {
@@ -157,6 +159,16 @@ button:disabled, .add-timer-button:disabled {
   letter-spacing: 2px;
 }
 
+.timer-buttons {
+  margin: 15px 0;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
 .reset-button {
   font-size: 10px;
+}
+
+.add-timer-button {
+  clear: both;
 }
