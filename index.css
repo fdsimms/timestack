@@ -218,6 +218,10 @@ button:disabled, .add-timer-button:disabled {
   width: 82%;
 }
 
+.timer-buttons.hide-border {
+  border-bottom: none;
+}
+
 .reset-button {
   font-size: 10px;
 }

@@ -1,4 +1,4 @@
-<div class="timer-buttons group">
+<div ng-class="{ 'hide-border': stack.isEmpty() }" class="timer-buttons group">
   <button ng-click="stack.clearTimers()"
           ng-hide="stack.isEmpty()"
           class="clear-all-button control-button">
