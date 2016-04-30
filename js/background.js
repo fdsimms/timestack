@@ -90,7 +90,8 @@ function endFirstTimerAndContinue () {
   }
 }
 
-function removeTimer() {
+function removeTimer(idx) {
+  background.timers.splice(idx, 1);
   resetIcon();
   stopInterval();
   background.timersRunning = false;

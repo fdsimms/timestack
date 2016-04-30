@@ -20,13 +20,7 @@ body {
   text-align: center;
 }
 
-.add-timer-button {
-}
-
-.timer-button {
-}
-
-.group:before {
+.group:after {
   clear: both;
   content: "";
   display: block;
@@ -34,8 +28,14 @@ body {
 
 .timer-button {
   float: right;
+  background: #A9A9FF;
   font-size: 12px;
-  color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+.remove-timer-button {
+  background: red;
 }
 
 button, .button {
