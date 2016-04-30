@@ -40,7 +40,6 @@ body {
 }
 
 button, .button {
-  /*border: 1px solid black;*/
   border-radius: 15px;
   margin: 2.5px auto;
   display: block;
@@ -51,11 +50,15 @@ button, .button {
   font-size: 12px;
 }
 
-.control-button {
-  width: 150px;
+.control-button, .add-timer-button {
   background: #A9A9FF;
   padding: 7.5px;
   font-size: 12px;
+}
+
+.control-button {
+  float: right;
+  margin-left: 5px;
 }
 
 .timer-form {
@@ -168,11 +171,11 @@ button:disabled, .add-timer-button:disabled {
 }
 
 .timer-buttons {
-  margin: 15px 0;
+  margin: 10px auto 20px auto;
   border-bottom: 2px solid #ddd;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
+  width: 82%;
 }
-
 
 .reset-button {
   font-size: 10px;
@@ -180,4 +183,5 @@ button:disabled, .add-timer-button:disabled {
 
 .add-timer-button {
   clear: both;
+  width: 150px;
 }

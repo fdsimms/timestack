@@ -79,10 +79,22 @@ function setTimerInt () {
   }, 1000);
 }
 
+function getAlertText () {
+  var result;
+
+  if (timers().length === 1) {
+    result = "Time to stop!";
+  } else if (timers().length > 1) {
+    result = "Time to move to your next task!";
+  }
+
+  return result;
+}
+
 function endFirstTimerAndContinue () {
+  alert(getAlertText());
   removeTimer(0);
   resetIcon();
-  alert("BEEP BEEP BEEP");
   if (stackIsEmpty()) {
     background.timersRunning = false;
   } else {
