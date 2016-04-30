@@ -16,7 +16,7 @@ label, button {
 }
 
 body {
-  font-family: 'Merriweather';
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   -webkit-font-smoothing: antialiased;
 }
@@ -92,6 +92,7 @@ input {
 }
 
 .text-description, .time-input {
+  font-size: 14px;
   border: 1px solid #eee;
 }
 
@@ -186,6 +187,7 @@ button:disabled, .add-timer-button:disabled {
   color: white;
   margin-bottom: 10px;
   letter-spacing: 2px;
+  text-shadow: 1px 1px 2px black;
 }
 
 .timer-buttons {
