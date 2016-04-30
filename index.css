@@ -113,6 +113,7 @@ input {
 
 .timer-data {
   float: left;
+  min-height: 40px;
   margin-right: 5px;
   display: block;
   width: 250px;
