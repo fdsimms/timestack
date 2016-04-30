@@ -73,7 +73,7 @@ button, .button {
 }
 
 .text-description {
-  margin: 0px auto 10px auto;
+  margin: auto;
   width: 184px;
   padding: 5px;
   font-size: 14px;
@@ -101,7 +101,7 @@ input {
 .time-inputs {
   display: block;
   width: 184px;
-  margin: 5px auto 0 auto;
+  margin: 5px auto 20px auto;
   float: left;
 }
 
