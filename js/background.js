@@ -93,21 +93,23 @@ function getAlertText () {
 
 function endFirstTimerAndContinue () {
   alert(getAlertText());
-  removeTimer(0);
-  resetIcon();
+  timers().splice(0, 1);
   if (stackIsEmpty()) {
     background.timersRunning = false;
+    stopInterval();
   } else {
     setTimerInt();
   }
+  resetIcon();
 }
 
 function removeTimer(idx) {
-  background.timers.splice(idx, 1);
-  resetIcon();
-  stopInterval();
-  background.timersRunning = false;
-  background.isPaused = false;
+  if (idx === 0) {
+    resetIcon();
+    stopInterval();
+    background.timersRunning = false;
+    background.isPaused = false;
+  }
 }
 
 function stopInterval() {

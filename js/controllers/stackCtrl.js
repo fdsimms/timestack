@@ -88,6 +88,7 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   };
 
   stack.removeTimer = function (idx) {
+    stack.timers.splice(idx, 1);
     if (stack.isEmpty()) {
       stack.timersRunning = false;
       stack.isPaused = false;
