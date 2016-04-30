@@ -131,3 +131,8 @@ input {
 .fa {
   width: 13px;
 }
+
+button:disabled, input:disabled, textarea:disabled {
+  color: graytext;
+  border: 1px solid gray;
+}
