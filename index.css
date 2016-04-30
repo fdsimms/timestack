@@ -220,6 +220,7 @@ button:disabled, .add-timer-button:disabled {
 
 .timer-buttons.hide-border {
   border-bottom: none;
+  margin-bottom: 0;
 }
 
 .reset-button {
