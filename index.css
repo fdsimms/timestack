@@ -72,13 +72,16 @@ button, .button {
 
 input {
   display: block;
-  border: 1px solid #eee;
   cursor: text;
 }
 
 .time-input {
   margin: 0 0.5px;
   float: left;
+}
+
+.text-description, .time-input {
+  border: 1px solid #eee;
 }
 
 .time-inputs {
@@ -136,6 +139,7 @@ button:disabled, .add-timer-button:disabled {
   background: #7964ED;
   height: 35px;
   margin-bottom: 10px;
+  border-bottom: 2px solid #ccc;
 }
 
 .app-title {
