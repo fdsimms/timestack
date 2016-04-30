@@ -35,23 +35,22 @@ body {
 .timer-button {
   float: right;
   font-size: 12px;
-}
-
-.add-timer-button {
-  margin: 5px 0;
+  color: black;
 }
 
 button, .button {
-  border: 1px solid black;
-  border-radius: 10px;
+  /*border: 1px solid black;*/
+  border-radius: 15px;
   margin: 2.5px auto;
   display: block;
   padding: 5px;
   cursor: pointer;
+  color: white;
 }
 
 .control-button {
   width: 150px;
+  background: #A9A9FF;
   padding: 7.5px;
   font-size: 12px;
 }
@@ -112,15 +111,7 @@ input {
 .app {
   display: block;
   width: 500px;
-  padding: 10px;
-}
-
-.app-title {
-  display: block;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 10px;
-  letter-spacing: 2px;
+  /*padding: 10px;*/
 }
 
 .timer-text-description {
@@ -133,6 +124,28 @@ input {
 }
 
 button:disabled, input:disabled, textarea:disabled {
-  color: graytext;
-  border: 1px solid gray;
+  color: #eee;
+}
+
+button:disabled, .add-timer-button:disabled {
+  background: #C4C4FF;
+  cursor: default;
+}
+
+.header-bar {
+  background: #7964ED;
+  height: 35px;
+  margin-bottom: 10px;
+}
+
+.app-title {
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
 }
