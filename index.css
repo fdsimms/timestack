@@ -143,6 +143,19 @@ button:hover, .button:hover {
   background: #C4C4FF;
 }
 
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;
+}
+::-moz-placeholder {
+   font-style: italic;
+}
+:-ms-input-placeholder {
+   font-style: italic;
+}
+
 .remove-timer-button:hover {
   background: #FF8484;
 }
