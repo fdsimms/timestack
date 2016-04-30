@@ -131,6 +131,14 @@ input {
   width: 13px;
 }
 
+button:hover, .button:hover {
+  background: #C4C4FF;
+}
+
+.remove-timer-button:hover {
+  background: #FF8484;
+}
+
 button:disabled, input:disabled, textarea:disabled {
   color: #eee;
 }
@@ -164,6 +172,7 @@ button:disabled, .add-timer-button:disabled {
   border-bottom: 2px solid #ddd;
   padding-bottom: 5px;
 }
+
 
 .reset-button {
   font-size: 10px;
