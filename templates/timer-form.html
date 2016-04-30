@@ -1,6 +1,8 @@
 <form class="timer-form group" name="timerInfo" ng-submit="stack.addTimer()">
   <div class="time-inputs group">
+    <label for="hours-input" class="obscure">Hours</label>
     <input class="time-input"
+           id="hours-input"
            type="number"
            ng-model="stack.formHours"
            max="24"
@@ -8,15 +10,19 @@
     <p class="unit-marker">
       h
     </p>
+    <label for="minutes-input" class="obscure">Minutes</label>
     <input class="time-input"
            type="number"
+           id="minutes-input"
            ng-model="stack.formMinutes"
            max="59"
            min="0" />
     <p class="unit-marker">
       m
     </p>
+    <label for="seconds-input" class="obscure">Seconds</label>
     <input class="time-input"
+           id="seconds-input"
            type="number"
            ng-model="stack.formSeconds"
            max="59"
@@ -26,8 +32,10 @@
     </p>
  </div>
 
+  <label for="description-input" class="obscure">Timer Description</label>
   <input type="text"
          class="text-description"
+         id="description-input"
          ng-model="stack.timerDesc"
          placeholder="e.g. Study for exam"/>
 

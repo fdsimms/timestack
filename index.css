@@ -152,6 +152,12 @@ input {
   width: 13px;
 }
 
+.obscure {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 .fa-spinner {
   color: #7964ED;
   width: 400px;
