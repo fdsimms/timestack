@@ -69,7 +69,7 @@ function pauseTimers() {
   background.isPaused = true;
 }
 
-function setTimerInt () {
+if (!timerInterval) {
   timerInterval = setInterval(function () {
     if (timers()[0].timeLeft > 0) {
       tick();
@@ -78,6 +78,7 @@ function setTimerInt () {
     }
   }, 1000);
 }
+
 
 function getAlertText () {
   var result;
@@ -113,7 +114,7 @@ function removeTimer(idx) {
 }
 
 function stopInterval() {
-  clearInterval(timerInterval);
+  setInterval = clearInterval(timerInterval);
 }
 
 function clearTimers() {
