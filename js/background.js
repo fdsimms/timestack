@@ -38,7 +38,7 @@ function updateIcon(startTime, timeLeft) {
   var elapsedTime = startTime - timeLeft;
   var timeRatio = elapsedTime / startTime;
   var width = 19 * timeRatio;
-  if (width <= 2) { width = 2; }
+  if (width <= 1) { width = 1; }
   ctx.drawImage(icon, 0, 0, 19, 19);
   ctx.fillStyle = "rgb(200,0,200)";
   ctx.fillRect(0, 0, width, 19);
