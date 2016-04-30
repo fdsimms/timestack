@@ -95,6 +95,7 @@ input {
 .text-description, .time-input {
   font-size: 14px;
   border: 1px solid #eee;
+  border-radius: 5px;
 }
 
 .time-inputs {
