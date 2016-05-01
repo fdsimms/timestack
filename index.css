@@ -244,12 +244,11 @@ button:disabled, .add-timer-button:disabled {
 
 .time-changer {
   position: absolute;
-  font-size: 0.7em;
+  font-size: 0.6em;
 }
 
 .increase-seconds {
   right: 20px;
-  font-size: 0.6em;
   top: 3px;
 }
 
