@@ -3,10 +3,8 @@
     <label for="hours-input" class="obscure">Hours</label>
     <input class="time-input"
            id="hours-input"
-           type="number"
-           ng-model="stack.formHours"
-           max="24"
-           min="0" />
+           type="text"
+           ng-model="stack.formHours"/>
     <p class="unit-marker">
       h
     </p>
@@ -17,11 +15,8 @@
 
     <label for="minutes-input" class="obscure">Minutes</label>
     <input class="time-input"
-           type="number"
-           id="minutes-input"
-           ng-model="stack.formMinutes"
-           max="59"
-           min="0" />
+           type="text"
+           id="minutes-input"/>
     <p class="unit-marker">
       m
     </p>
