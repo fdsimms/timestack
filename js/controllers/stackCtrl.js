@@ -107,11 +107,15 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   };
 
   stack.addSecond = function () {
-    stack.formSeconds = stack.padNum(Number(stack.formSeconds) + 1);
+    if (stack.seconds() < 59) {
+      stack.formSeconds = stack.padNum(Number(stack.formSeconds) + 1);
+    }
   };
 
   stack.subSecond = function () {
-
+    if (stack.seconds() > 0) {
+      stack.formSeconds = stack.padNum(Number(stack.formSeconds) - 1);
+    }
   };
 
   stack.formSeconds = "00";
