@@ -247,12 +247,25 @@ button:disabled, .add-timer-button:disabled {
   font-size: 0.6em;
 }
 
-.increase-seconds {
-  right: 20px;
+.time-changer.fa-arrow-up {
   top: 3px;
 }
 
-.decrease-seconds {
+.time-changer.fa-arrow-down {
   top: 13px;
+}
+
+.decrease-seconds,
+.increase-seconds {
   right: 20px;
+}
+
+.increase-minutes,
+.decrease-minutes {
+  right: 84px;
+}
+
+.increase-hours,
+.decrease-hours {
+  right: 144px;
 }
