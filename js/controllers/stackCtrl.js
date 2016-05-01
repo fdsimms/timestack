@@ -15,6 +15,14 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
     return Number(stack.formSeconds);
   };
 
+  stack.minutes = function () {
+    return Number(stack.formMinutes);
+  };
+
+  stack.hours = function () {
+    return Number(stack.formHours);
+  };
+
   stack.resetForm = function () {
     stack.formSeconds = "00";
     stack.formMinutes = "00";

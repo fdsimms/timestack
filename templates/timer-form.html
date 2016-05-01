@@ -50,6 +50,6 @@
          class="add-timer-button button"
          value="Add Timer"
          ng-disabled="stack.seconds() +
-               stack.formMinutes +
-               stack.formHours === 0"/>
+               stack.minutes() +
+               stack.hours() === 0"/>
 </form>
