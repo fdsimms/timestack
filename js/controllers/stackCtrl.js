@@ -11,8 +11,12 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
     });
   };
 
+  stack.seconds = function () {
+    return Number(stack.formSeconds);
+  };
+
   stack.resetForm = function () {
-    stack.formSeconds = 0;
+    stack.formSeconds = "0";
     stack.formMinutes = 0;
     stack.formHours = 0;
     stack.timerDesc = "";
@@ -20,7 +24,7 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
 
   stack.addTimer = function () {
     var timer = {
-      timeInSeconds: stack.formSeconds +
+      timeInSeconds: stack.seconds() +
                      stack.formMinutes * 60 +
                      stack.formHours * 3600,
       timerDesc: stack.timerDesc
@@ -97,7 +101,7 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
     bgpService.removeTimer(idx);
   };
 
-  stack.formSeconds = 0;
+  stack.formSeconds = "00";
   stack.formMinutes = 0;
   stack.formHours = 0;
   stack.timerDesc = "";
