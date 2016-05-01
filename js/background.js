@@ -69,14 +69,16 @@ function pauseTimers() {
   background.isPaused = true;
 }
 
-if (!timerInterval) {
-  timerInterval = setInterval(function () {
-    if (timers()[0].timeLeft > 0) {
-      tick();
-    } else {
-      endFirstTimerAndContinue();
-    }
-  }, 1000);
+function setTimerInt () {
+  if (!timerInterval) {
+    timerInterval = setInterval(function () {
+      if (timers()[0].timeLeft > 0) {
+        tick();
+      } else {
+        endFirstTimerAndContinue();
+      }
+    }, 1000);
+  }
 }
 
 
