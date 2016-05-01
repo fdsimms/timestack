@@ -33,8 +33,8 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   stack.addTimer = function () {
     var timer = {
       timeInSeconds: stack.seconds() +
-                     stack.formMinutes * 60 +
-                     stack.formHours * 3600,
+                     stack.minutes() * 60 +
+                     stack.hours() * 3600,
       timerDesc: stack.timerDesc
     };
     timer.timeLeft = timer.timeInSeconds;
