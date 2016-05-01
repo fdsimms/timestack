@@ -101,6 +101,19 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
     bgpService.removeTimer(idx);
   };
 
+  stack.padNum = function (num) {
+    var pad = num < 10 ? "0" : "";
+    return pad + num;
+  };
+
+  stack.addSecond = function () {
+    stack.formSeconds = stack.padNum(Number(stack.formSeconds) + 1);
+  };
+
+  stack.subSecond = function () {
+
+  };
+
   stack.formSeconds = "00";
   stack.formMinutes = 0;
   stack.formHours = 0;
