@@ -90,6 +90,9 @@ input {
 .time-input {
   margin: 0 0.5px;
   float: left;
+  width: 40px;
+  text-align: left;
+  padding: 2.5px 0 2.5px 5px;
 }
 
 .text-description, .time-input {
