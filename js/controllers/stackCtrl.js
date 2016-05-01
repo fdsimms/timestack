@@ -148,6 +148,12 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
     }
   };
 
+  stack.NaNInInputs = function () {
+    return !!Number(stack.formSeconds) ||
+           !!Number(stack.formMinutes) ||
+           !!Number(stack.formHours);
+  };
+
   stack.formSeconds = "00";
   stack.formMinutes = "00";
   stack.formHours = "00";

@@ -49,5 +49,6 @@
          value="Add Timer"
          ng-disabled="stack.seconds() +
                stack.minutes() +
-               stack.hours() === 0"/>
+               stack.hours() === 0 ||
+               !stack.NaNInInputs()"/>
 </form>
