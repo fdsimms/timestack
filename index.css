@@ -90,7 +90,7 @@ input {
 .time-input {
   margin: 0 0.5px;
   float: left;
-  width: 40px;
+  width: 34px;
   text-align: left;
   padding: 2.5px 0 2.5px 5px;
 }
@@ -103,6 +103,7 @@ input {
 
 .time-inputs {
   display: block;
+  position: relative;
   width: 184px;
   margin: 5px auto 20px auto;
   float: left;
@@ -239,4 +240,20 @@ button:disabled, .add-timer-button:disabled {
 .add-timer-button {
   clear: both;
   width: 150px;
+}
+
+.time-changer {
+  position: absolute;
+  font-size: 0.7em;
+}
+
+.increase-seconds {
+  right: 20px;
+  font-size: 0.6em;
+  top: 3px;
+}
+
+.decrease-seconds {
+  top: 13px;
+  right: 20px;
 }
