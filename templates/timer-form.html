@@ -10,6 +10,11 @@
     <p class="unit-marker">
       h
     </p>
+    <i class="fa fa-arrow-up increase-hours time-changer"
+       ng-click="stack.addHour()"></i>
+    <i class="fa fa-arrow-down decrease-hours time-changer"
+       ng-click="stack.subHour()"></i>
+
     <label for="minutes-input" class="obscure">Minutes</label>
     <input class="time-input"
            type="number"
@@ -20,6 +25,11 @@
     <p class="unit-marker">
       m
     </p>
+    <i class="fa fa-arrow-up increase-minutes time-changer"
+       ng-click="stack.addMinute()"></i>
+    <i class="fa fa-arrow-down decrease-minutes time-changer"
+       ng-click="stack.subMinute()"></i>
+
     <label for="seconds-input" class="obscure">Seconds</label>
     <input class="time-input"
            id="seconds-input"
