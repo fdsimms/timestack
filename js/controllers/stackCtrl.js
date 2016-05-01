@@ -139,13 +139,11 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   };
 
   stack.addHour = function () {
-    if (stack.seconds() < 59) {
-      stack.formHours = stack.padNum(Number(stack.formHours) + 1);
-    }
+    stack.formHours = stack.padNum(Number(stack.formHours) + 1);
   };
 
   stack.subHour = function () {
-    if (stack.seconds() > 0) {
+    if (stack.hours() > 0) {
       stack.formHours = stack.padNum(Number(stack.formHours) - 1);
     }
   };
