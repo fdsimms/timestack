@@ -121,7 +121,7 @@ function removeTimer(idx) {
 }
 
 function stopInterval() {
-  setInterval = clearInterval(timerInterval);
+  timerInterval = clearInterval(timerInterval);
 }
 
 function clearTimers() {
