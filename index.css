@@ -124,10 +124,13 @@ input {
   border-top-left-radius: 0px;
 }
 
-.unit-marker {
+.input-colon {
   float: left;
-  font-size: 12px;
+  font-size: 20px;
   margin: 0 5px;
+  top: -2px;
+  font-style: normal;
+  position: relative;
 }
 
 .timer-data {
@@ -257,12 +260,12 @@ button:disabled, .add-timer-button:disabled {
 
 .decrease-seconds,
 .increase-seconds {
-  right: 20px;
+  right: 28px;
 }
 
 .increase-minutes,
 .decrease-minutes {
-  right: 84px;
+  right: 86px;
 }
 
 .increase-hours,
