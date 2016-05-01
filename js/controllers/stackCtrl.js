@@ -16,9 +16,9 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   };
 
   stack.resetForm = function () {
-    stack.formSeconds = "0";
-    stack.formMinutes = 0;
-    stack.formHours = 0;
+    stack.formSeconds = "00";
+    stack.formMinutes = "00";
+    stack.formHours = "00";
     stack.timerDesc = "";
   };
 
@@ -117,7 +117,7 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
       stack.formSeconds = stack.padNum(Number(stack.formSeconds) - 1);
     }
   };
-  
+
   stack.addMinutes = function () {
     if (stack.minutes() < 59) {
       stack.formMinutes = stack.padNum(Number(stack.formMinutes) + 1);
@@ -143,8 +143,8 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   };
 
   stack.formSeconds = "00";
-  stack.formMinutes = 0;
-  stack.formHours = 0;
+  stack.formMinutes = "00";
+  stack.formHours = "00";
   stack.timerDesc = "";
   stack.updateInt = $interval(function () {
     stack.updateInfo();
