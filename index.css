@@ -248,6 +248,11 @@ button:disabled, .add-timer-button:disabled {
 .time-changer {
   position: absolute;
   font-size: 0.6em;
+  cursor: pointer;
+}
+
+.time-changer:hover {
+  color: #aaa;
 }
 
 .time-changer.fa-arrow-up {
