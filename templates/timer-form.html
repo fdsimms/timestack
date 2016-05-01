@@ -5,6 +5,7 @@
            id="hours-input"
            type="text"
            ng-model="stack.formHours"
+           ignore-non-nums="true"
            ts-up-key="stack.addHour()"
            ts-down-key="stack.subHour()"/>
     <i class="input-colon">
@@ -19,6 +20,7 @@
     <input class="time-input"
            type="text"
            id="minutes-input"
+           ignore-non-nums="true"
            ng-model="stack.formMinutes"
            ts-up-key="stack.addMinute()"
            ts-down-key="stack.subMinute()"/>
@@ -35,6 +37,7 @@
            id="seconds-input"
            type="text"
            ng-model="stack.formSeconds"
+           ignore-non-nums="true"
            ts-up-key="stack.addSecond()"
            ts-down-key="stack.subSecond()"/>
     <i class="fa fa-arrow-up increase-seconds time-changer"
