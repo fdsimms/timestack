@@ -86,7 +86,12 @@ function getAlertText () {
   if (timers().length === 1) {
     result = "Time to stop!";
   } else if (timers().length > 1) {
-    result = "Time to move to your next task!";
+    var secondTimerDesc = timers()[1].timerDesc;
+    if (secondTimerDesc) {
+      result = "Time to move on! Next up: " + secondTimerDesc + ".";
+    } else {
+      result = "Time to move on!";
+    }
   }
 
   return result;
