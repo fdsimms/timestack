@@ -4,7 +4,8 @@
     <input class="time-input"
            id="hours-input"
            type="text"
-           ng-model="stack.formHours"/>
+           ng-model="stack.formHours"
+           ts-down-key="stack.subHour()"/>
     <i class="input-colon">
       :
     </i>
@@ -17,7 +18,8 @@
     <input class="time-input"
            type="text"
            id="minutes-input"
-           ng-model="stack.formMinutes"/>
+           ng-model="stack.formMinutes"
+           ts-down-key="stack.subMinute()"/>
     <i class="input-colon">
       :
     </i>
@@ -34,7 +36,8 @@
     <i class="fa fa-arrow-up increase-seconds time-changer"
        ng-click="stack.addSecond()"></i>
     <i class="fa fa-arrow-down decrease-seconds time-changer"
-       ng-click="stack.subSecond()"></i>
+       ng-click="stack.subSecond()"
+       ts-down-key="stack.subSecond()"></i>
  </div>
 
   <label for="description-input" class="obscure">Timer Description</label>
