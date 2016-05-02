@@ -71,13 +71,13 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   };
 
   stack.timersOnCurPage = function () {
-    if (stack.timers) {
-      return stack.timers.slice(stack.curPage() * 5, stack.curPage() * 5 + 5);
+    if (!!stack.timers) {
+      return stack.timers.slice(stack.curPage * 5, stack.curPage * 5 + 5);
     }
   };
 
   stack.numPages = function () {
-    if (stack.timers) {
+    if (!!stack.timers) {
       return Math.ceil(stack.timers.length / 5);
     }
   };
