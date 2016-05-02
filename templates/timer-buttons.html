@@ -22,6 +22,9 @@
     Resume
   </button>
 
+  <i ng-click="stack.prevPage()"
+  ng-show="stack.curPage() >= stack.numPages()"
+  class="next-page-button fa fa-arrow-right"></i>
   <i ng-click="stack.nextPage()"
      ng-show="stack.curPage() <= stack.numPages()"
      class="next-page-button fa fa-arrow-right"></i>
