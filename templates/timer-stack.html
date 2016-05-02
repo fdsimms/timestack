@@ -1,0 +1,22 @@
+<ul class="timer-stack">
+  <li class="timer group"
+      ng-repeat="timer in stack.timers track by $index">
+    <timer data="timer" class="timer-data"></timer>
+    <button class="reset-button timer-button"
+      ng-click="stack.resetTimer($index)">
+      reset
+    </button>
+    <button class="fa fa-times remove-timer-button timer-button"
+            ng-click="stack.removeTimer($index)">
+
+    </button>
+    <button class="fa fa-arrow-up move-up-button timer-button"
+      ng-hide="$index === 0"
+      ng-click="stack.moveTimerUp($index)">
+    </button>
+    <button class="fa fa-arrow-down move-down-button timer-button"
+      ng-hide="$index === (stack.timers.length - 1)"
+      ng-click="stack.moveTimerDown($index)">
+    </button>
+  </li>
+</ul>
