@@ -73,13 +73,12 @@ button, .button {
 }
 
 .text-description {
-  margin: auto;
-  width: 184px;
+  margin: 0 auto 10px auto;
+  width: 215px;
   padding: 5px;
   font-size: 14px;
   font-weight: bold;
   text-align: left;
-  float: right;
 }
 
 input {
@@ -104,9 +103,8 @@ input {
 .time-inputs {
   display: block;
   position: relative;
-  width: 184px;
-  margin: 5px auto 20px auto;
-  float: left;
+  width: 158px;
+  margin: 5px auto 10px auto;
 }
 
 .timer {
@@ -138,13 +136,13 @@ input {
   min-height: 40px;
   margin-right: 5px;
   display: block;
-  width: 250px;
+  width: 195px;
   text-align: left;
 }
 
 .app {
   display: block;
-  width: 450px;
+  width: 375px;
   padding-bottom: 10px;
 }
 
@@ -265,15 +263,15 @@ button:disabled, .add-timer-button:disabled {
 
 .decrease-seconds,
 .increase-seconds {
-  right: 28px;
+  right: 3px;
 }
 
 .increase-minutes,
 .decrease-minutes {
-  right: 86px;
+  right: 61px;
 }
 
 .increase-hours,
 .decrease-hours {
-  right: 144px;
+  right: 119px;
 }
