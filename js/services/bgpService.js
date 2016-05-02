@@ -38,4 +38,10 @@ angular.module("timestack.services.bgpService", [])
         bgp.startTimer();
       });
     };
+
+    bgpService.resetIcon = function () {
+      bgpService.getBGP(function (bgp) {
+        bgp.resetIcon();
+      });
+    };
   });
