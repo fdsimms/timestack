@@ -25,6 +25,7 @@
   <i ng-click="stack.prevPage()"
   ng-show="stack.curPage() >= stack.numPages()"
   class="next-page-button fa fa-arrow-right"></i>
+  {{stack.curPage() + 1}} of {{stack.numPages()}}
   <i ng-click="stack.nextPage()"
      ng-show="stack.curPage() <= stack.numPages()"
      class="next-page-button fa fa-arrow-right"></i>
