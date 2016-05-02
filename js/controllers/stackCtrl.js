@@ -70,7 +70,7 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
     stack.curPage++;
   };
 
-  stack.timersOnThisPage = function () {
+  stack.timersOnCurPage = function () {
     return timers().slice([stack.curPage * 5, stack.curPage * 5 + 5]);
   };
 
