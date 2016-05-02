@@ -1,6 +1,6 @@
 <ul class="timer-stack">
   <li class="timer group"
-      ng-repeat="timer in stack.timers track by $index">
+      ng-repeat="timer in stack.timersOnCurPage() track by $index">
     <timer data="timer" class="timer-data"></timer>
     <button class="reset-button timer-button"
       ng-click="stack.resetTimer($index)">

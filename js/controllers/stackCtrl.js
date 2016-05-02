@@ -74,7 +74,7 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
     return timers().slice([stack.curPage * 5, stack.curPage * 5 + 5]);
   };
 
-  stac.prevPage = function () {
+  stack.prevPage = function () {
     stack.curPage--;
   };
 
