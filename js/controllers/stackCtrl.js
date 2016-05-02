@@ -1,6 +1,7 @@
 timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   var stack = this;
   stack.show = false;
+  stack.curPage = 0;
 
   stack.updateInfo = function () {
     bgpService.getBGP(function (bgp) {
@@ -63,6 +64,14 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   stack.pauseTimers = function () {
     bgpService.pauseTimers();
     stack.isPaused = true;
+  };
+
+  stack.nextPage = function () {
+    stack.curPage++;
+  };
+
+  stac.prevPage = function () {
+    stack.curPage--;
   };
 
   stack.moveTimerUp = function (idx) {
