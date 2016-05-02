@@ -21,4 +21,9 @@
           class="resume-timer-button control-button">
     Resume
   </button>
+
+  <i ng-click="stack.nextPage()"
+     ng-show="stack.curPage() <= stack.numPages()"
+     class="next-page-button fa fa-arrow-right"></i>
+
 </div>
