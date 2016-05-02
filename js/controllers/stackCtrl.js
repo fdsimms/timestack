@@ -86,7 +86,10 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   };
 
   stack.resetTimer = function (idx) {
-    if (idx === 0) { stack.pauseTimers(); }
+    if (idx === 0) {
+      stack.pauseTimers();
+      bgpService.resetIcon();
+    }
 
     var timer = stack.timers[idx];
     timer.timeLeft = timer.timeInSeconds;
