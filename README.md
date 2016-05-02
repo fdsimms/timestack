@@ -1,6 +1,9 @@
 # Timestack
 
-[![image]()][]
+[Download on the Chrome Web Store][chrome-page]
+
+[![image](timestack-image.png)][chrome-page]
+[chrome-page]: https://chrome.google.com/webstore/detail/timestack/hgkefoelcaofbcpfeimjmgofjdlgehof
 
 ## Summary
   Timestack allows users to set multiple timers with descriptions in order to plan out their days. It can be used in a variety of circumstances. I could imagine it working well for planning out workout routines (if you want to work out with your laptop nearby!) or planning out studying sessions.
