@@ -2,7 +2,7 @@
 
 [Download on the Chrome Web Store][chrome-page]
 
-[![image](timestack-image.png)][chrome-page]
+[![image](assets/timestack-image.png)][chrome-page]
 [chrome-page]: https://chrome.google.com/webstore/detail/timestack/hgkefoelcaofbcpfeimjmgofjdlgehof
 
 ## Summary

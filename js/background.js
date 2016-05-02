@@ -29,7 +29,7 @@ function tick() {
 }
 
 var icon = new Image();
-icon.src = "icon.png";
+icon.src = "assets/icon.png";
 
 function updateIcon(startTime, timeLeft) {
   var canvas = document.getElementById("canvas");
