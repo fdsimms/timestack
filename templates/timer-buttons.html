@@ -22,13 +22,13 @@
     Resume
   </button>
 
-  <div class="pagination-buttons">
+  <div class="pagination-buttons" ng-show="stack.numPages() > 0">
     <i ng-click="stack.prevPage()"
     ng-show="stack.curPage < stack.numPages() && stack.curPage > 0"
     class="prev-page-button fa fa-arrow-left"></i>
     <span>{{stack.curPage + 1}} of {{stack.numPages()}}</span>
     <i ng-click="stack.nextPage()"
-    ng-show="stack.curPage < stack.numPages()"
+    ng-show="stack.curPage + 1 < stack.numPages()"
     class="next-page-button fa fa-arrow-right"></i>
   </div>
 
