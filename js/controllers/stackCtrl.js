@@ -73,9 +73,16 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
 
   stack.timersOnCurPage = function () {
     if (!!stack.timers) {
-      var firstTimerIdx = stack.curPage * stack.maxPerPage;
-      var lastTimerIdx = stack.curPage * stack.maxPerPage + stack.maxPerPage;
-      return stack.timers.slice(firstTimerIdx, lastTimerIdx);
+      var firstIdx = stack.curPage * stack.maxPerPage;
+      var lastIdx = stack.curPage * stack.maxPerPage + stack.maxPerPage;
+      if (stack.curPage > 0) {
+        var runningTimer = stack.timers[0];
+        var restOfTimers = stack.timers.slice(firstIdx, lastIdx);
+
+        return [stack.timers[0]].concat(restOfTimers);
+      } else {
+        return stack.timers.slice(firstIdx, lastIdx);
+      }
     }
   };
 
