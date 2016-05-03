@@ -69,7 +69,7 @@ function pauseTimers() {
   background.isPaused = true;
 }
 
-function setTimerInt () {
+function setTimerInt() {
   if (!timerInterval) {
     timerInterval = setInterval(function () {
       if (timers()[0].timeLeft > 0) {
@@ -81,8 +81,12 @@ function setTimerInt () {
   }
 }
 
+function playBellSound() {
+  var bell = document.getElementsByClassName("bell-sound")[0];
+  bell.play();
+}
 
-function getAlertText () {
+function getAlertText() {
   var result;
 
   if (timers().length === 1) {
@@ -99,8 +103,13 @@ function getAlertText () {
   return result;
 }
 
-function endFirstTimerAndContinue () {
+function alertAndSound() {
+  playBellSound();
   alert(getAlertText());
+}
+
+function endFirstTimerAndContinue() {
+  alertAndSound();
   timers().splice(0, 1);
   if (stackIsEmpty()) {
     background.timersRunning = false;
