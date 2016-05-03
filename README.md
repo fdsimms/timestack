@@ -20,3 +20,9 @@ Fill in the amount of time you want a timer to run and an optional description o
 [angular-link]: https://angularjs.org
 [fa-link]: https://fortawesome.github.io/Font-Awesome/
 [gf-link]: https://google.com/fonts
+
+## Other
+
+* Bell sound provided by Mike Koenig at [this page][sound-link].
+
+[sound-link]: http://soundbible.com/1746-Ship-Bell.html
