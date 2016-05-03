@@ -249,7 +249,9 @@ button:disabled, .add-timer-button:disabled {
   cursor: pointer;
 }
 
-.time-changer:hover {
+.time-changer:hover,
+.next-page-button:hover,
+.prev-page-button:hover {
   color: #aaa;
 }
 
@@ -278,4 +280,8 @@ button:disabled, .add-timer-button:disabled {
 
 .pagination-buttons {
   padding: 5px;
+}
+.next-page-button,
+.prev-page-button {
+  cursor: pointer;
 }
