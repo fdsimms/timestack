@@ -2,6 +2,7 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
   var stack = this;
   stack.show = false;
   stack.curPage = 0;
+  stack.maxPerPage = 4;
 
   stack.updateInfo = function () {
     bgpService.getBGP(function (bgp) {
@@ -72,13 +73,15 @@ timestack.controller("stackCtrl", function ($scope, $interval, bgpService) {
 
   stack.timersOnCurPage = function () {
     if (!!stack.timers) {
-      return stack.timers.slice(stack.curPage * 5, stack.curPage * 5 + 5);
+      var firstTimerIdx = stack.curPage * stack.maxPerPage;
+      var lastTimerIdx = stack.curPage * stack.maxPerPage + stack.maxPerPage;
+      return stack.timers.slice(firstTimerIdx, lastTimerIdx);
     }
   };
 
   stack.numPages = function () {
     if (!!stack.timers) {
-      return Math.ceil(stack.timers.length / 5);
+      return Math.ceil(stack.timers.length / stack.maxPerPage);
     }
   };
 
