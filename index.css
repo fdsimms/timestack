@@ -275,3 +275,7 @@ button:disabled, .add-timer-button:disabled {
 .decrease-hours {
   right: 119px;
 }
+
+.pagination-buttons {
+  padding: 5px;
+}
