@@ -12,6 +12,7 @@
     "strip-ansi": "^5.0.0"
   },
   "scripts": {
-    "test": "jest --json --outputFile test-output.json; node script.js"
+    "test": "jest --json --outputFile test-output.json",
+    "test-report": "node script.js"
   }
 }
