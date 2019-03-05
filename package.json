@@ -1,0 +1,14 @@
+{
+  "name": "timestack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:fdsimms/timestack.git",
+  "author": "Frankie Simms <fdsimms@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^24.1.0"
+  },
+  "scripts": {
+    "test": "jest --json --outputFile test-output.json; node script.js"
+  }
+}
