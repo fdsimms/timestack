@@ -32,4 +32,3 @@ module.exports = {
   getReport
 };
 
-comment('/test-output.json');
