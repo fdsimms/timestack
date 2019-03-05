@@ -4,7 +4,7 @@
   "main": "index.js",
   "repository": "git@github.com:fdsimms/timestack.git",
   "author": "Frankie Simms <fdsimms@gmail.com>",
-  "license": "MIT",
+  "license": "MI",
   "dependencies": {
     "dotenv": "^6.2.0",
     "jest": "^24.1.0",
