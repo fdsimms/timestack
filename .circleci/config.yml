@@ -35,3 +35,7 @@ jobs:
 
       # run tests!
       - run: yarn test
+      - run: 
+          name: Upload Test Report
+          command: yarn test-report
+          when: on_fail

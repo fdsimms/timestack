@@ -19,7 +19,7 @@ function comment(filepath) {
   nodeFetch(
     'https://api.github.com/repos/fdsimms/timestack/issues/1/comments',
     request
-  )
+  ).then(res => console.log(res))
   return 'Okay';
 }
 
@@ -31,4 +31,7 @@ module.exports = {
   comment,
   getReport
 };
+
+comment("/test-output.json");
+
 
