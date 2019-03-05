@@ -6,7 +6,10 @@
   "author": "Frankie Simms <fdsimms@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "jest": "^24.1.0"
+    "dotenv": "^6.2.0",
+    "jest": "^24.1.0",
+    "node-fetch": "^2.3.0",
+    "strip-ansi": "^5.0.0"
   },
   "scripts": {
     "test": "jest --json --outputFile test-output.json; node script.js"
