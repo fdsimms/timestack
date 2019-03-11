@@ -131,6 +131,13 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@postlight/ci-failed-test-reporter@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@postlight/ci-failed-test-reporter/-/ci-failed-test-reporter-1.0.1.tgz#319a060d9c56e646ca3086633f69d67813a9dcd2"
+  integrity sha512-o92sinksYF7GIzSk9Fqgdlf9E4YnWg5CIGYXzz/WPiFAsHe4HZrcL1lcJMAOkN0tfEESoG9AQU/H7Jw9+vOwBw==
+  dependencies:
+    node-fetch "^2.3.0"
+
 "@types/babel__traverse@^7.0.6":
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/@types/babel__traverse/-/babel__traverse-7.0.6.tgz#328dd1a8fc4cfe3c8458be9477b219ea158fd7b2"

@@ -14,5 +14,8 @@
   "scripts": {
     "test": "jest --json --outputFile test-output.json",
     "test-report": "node script.js"
+  },
+  "devDependencies": {
+    "@postlight/ci-failed-test-reporter": "^1.0.1"
   }
 }
