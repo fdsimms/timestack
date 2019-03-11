@@ -131,10 +131,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@postlight/ci-failed-test-reporter@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@postlight/ci-failed-test-reporter/-/ci-failed-test-reporter-1.0.1.tgz#319a060d9c56e646ca3086633f69d67813a9dcd2"
-  integrity sha512-o92sinksYF7GIzSk9Fqgdlf9E4YnWg5CIGYXzz/WPiFAsHe4HZrcL1lcJMAOkN0tfEESoG9AQU/H7Jw9+vOwBw==
+"@postlight/ci-failed-test-reporter@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/@postlight/ci-failed-test-reporter/-/ci-failed-test-reporter-1.0.12.tgz#dfff7e2a95aafd77060a69d2e3437a2bd3f7d23c"
+  integrity sha512-m52L88sFaP3pe8OrmtJ34Qhmm1FRP3YfnPS22im1v9a2RQLvNjC4V8wQzBDDJDnHZLPI3EQREdnifSayrMcvQA==
   dependencies:
     node-fetch "^2.3.0"
 
