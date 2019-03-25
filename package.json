@@ -13,7 +13,7 @@
     "@postlight/ci-failed-test-reporter": "postlight/ci-failed-test-reporter#test-travis"
   },
   "scripts": {
-    "test": "jest --json --outputFile test-output.json",
+    "test": "jest --json --outputFile test-report.json",
     "test-report": "node script.js"
   },
   "devDependencies": {}
