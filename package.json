@@ -1,0 +1,20 @@
+{
+  "name": "timestack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:fdsimms/timestack.git",
+  "author": "Frankie Simms <fdsimms@gmail.com>",
+  "license": "MI",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "jest": "^24.1.0",
+    "node-fetch": "^2.3.0",
+    "strip-ansi": "^5.0.0",
+    "@postlight/ci-failed-test-reporter": "postlight/ci-failed-test-reporter#test-travis"
+  },
+  "scripts": {
+    "test": "jest --json --outputFile test-report.json",
+    "test-report": "node script.js"
+  },
+  "devDependencies": {}
+}
