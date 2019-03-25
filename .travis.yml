@@ -2,4 +2,4 @@ language: node_js
 node_js:
  - "node"
 after_failure:
-  - npm run ci-failed-test-reporter /test-report.json
+  - npm run ciftr /test-report.json
