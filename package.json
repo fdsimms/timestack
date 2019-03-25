@@ -16,6 +16,6 @@
     "test-report": "node script.js"
   },
   "devDependencies": {
-    "@postlight/ci-failed-test-reporter": "^1.0.12"
+    "ci-failed-test-reporter": "postlight/ci-failed-test-reporter#test-travis"
   }
 }
